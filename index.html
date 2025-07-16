@@ -6,26 +6,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
         html {
-    scroll-behavior: smooth;
+            scroll-behavior: smooth;
         }
         body {
-    font-size: 0.95em;   /* Slightly reduced font size */
-        }
-        h1 {
-    font-size: 1.5em;    /* Reduce name font size slightly */
-        }
-        h2 {
-    font-size: 1.2em;    /* Reduce section heading size slightly */
-        }
-        p, li {
-    font-size: 0.9em;    /* Body text and list items slightly smaller */}
-        body {
+            font-size: 0.9em;
             font-family: 'Poppins', sans-serif;
             margin: 0;
             background-color: #F9FAFB;
             color: #333333;
             overflow-x: hidden;
             transition: background-color 0.4s, color 0.4s;
+        }
+        h1 {
+            font-size: 1.5em;
+        }
+        h2 {
+            font-size: 1.1em;
+        }
+        p, li {
+            font-size: 0.85em;
         }
         header {
             background-color: #2C3E50;
@@ -35,7 +34,7 @@
         }
         .typing-text {
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #00BFFF;
             height: 30px;
         }
@@ -49,12 +48,14 @@
             gap: 20px;
             padding: 10px;
             z-index: 1000;
+            flex-wrap: wrap;
         }
         nav a, .download-cv {
             color: white;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
+            font-size: 0.85em;
         }
         nav a:hover, .download-cv:hover {
             color: #00BFFF;
@@ -68,6 +69,7 @@
             cursor: pointer;
             font-weight: bold;
             transition: background-color 0.3s ease;
+            font-size: 0.85em;
         }
         .mode-toggle:hover {
             background-color: #009ACD;
@@ -76,22 +78,24 @@
             max-width: 1000px;
             margin: auto;
             padding: 20px;
-            animation: fadeIn 1.5s ease-in;
+            animation: fadeIn 2s ease-in;
         }
         h2 {
             color: #2C3E50;
         }
         .card {
+            max-width: 95%;
             background: white;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             border-radius: 15px;
-            padding: 20px;
+            padding: 18px;
             margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 0.85em;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
         .card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+            transform: scale(1.015);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
         }
         ul {
             padding-left: 20px;
@@ -101,6 +105,7 @@
             color: white;
             text-align: center;
             padding: 20px;
+            font-size: 0.8em;
         }
         a {
             color: #00BFFF;
@@ -111,21 +116,21 @@
         }
         .certification-button, .download-cv {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 10px 20px;
             background-color: #00BFFF;
             color: white;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-top: 10px;
+            font-size: 0.85em;
         }
         .certification-button:hover, .download-cv:hover {
             background-color: #009ACD;
             transform: scale(1.05);
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .dark-mode {
@@ -141,6 +146,31 @@
         }
         .dark-mode a {
             color: #00BFFF;
+        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 0.85em;
+            }
+            h1 {
+                font-size: 1.2em;
+            }
+            h2 {
+                font-size: 1em;
+            }
+            .card {
+                padding: 15px;
+            }
+            .certification-button, .download-cv {
+                padding: 8px 14px;
+                font-size: 0.75em;
+            }
+            nav {
+                gap: 10px;
+            }
+            .mode-toggle {
+                padding: 4px 10px;
+                font-size: 0.75em;
+            }
         }
     </style>
 </head>
@@ -236,11 +266,9 @@
 <section id="contact">
     <div class="card">
         <h2>Contact</h2>
-        <div class="contact">
-            <p>Email: <a href="mailto:shantanukawtikwar1994@gamil.com">shantanukawtikwar1994@gamil.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank">LinkedIn Profile</a></p>
-            <p>GitHub: <a href="https://github.com/ShantanuKawtikwar" target="_blank">GitHub Profile</a></p>
-        </div>
+        <p>Email: <a href="mailto:shantanukawtikwar1994@gamil.com">shantanukawtikwar1994@gamil.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank">LinkedIn Profile</a></p>
+        <p>GitHub: <a href="https://github.com/ShantanuKawtikwar" target="_blank">GitHub Profile</a></p>
     </div>
 </section>
 
@@ -267,7 +295,7 @@
             index = 0;
             setTimeout(type, 1000);
         } else {
-            setTimeout(type, 150);
+            setTimeout(type, 180);
         }
     }
     type();
