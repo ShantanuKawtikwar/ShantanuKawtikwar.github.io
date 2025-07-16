@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shantanu Kawtikwar | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        html {
+    scroll-behavior: smooth;
+        }
+        body {
+    font-size: 0.95em;   /* Slightly reduced font size */
+        }
+        h1 {
+    font-size: 1.5em;    /* Reduce name font size slightly */
+        }
+        h2 {
+    font-size: 1.2em;    /* Reduce section heading size slightly */
+        }
+        p, li {
+    font-size: 0.9em;    /* Body text and list items slightly smaller */}
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #F9FAFB;
+            color: #333333;
+            overflow-x: hidden;
+            transition: background-color 0.4s, color 0.4s;
+        }
+        header {
+            background-color: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+        .typing-text {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #00BFFF;
+            height: 30px;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #2C3E50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 10px;
+            z-index: 1000;
+        }
+        nav a, .download-cv {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover, .download-cv:hover {
+            color: #00BFFF;
+        }
+        .mode-toggle {
+            background-color: #00BFFF;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .mode-toggle:hover {
+            background-color: #009ACD;
+        }
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in;
+        }
+        h2 {
+            color: #2C3E50;
+        }
+        .card {
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+        }
+        ul {
+            padding-left: 20px;
+        }
+        footer {
+            background: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        a {
+            color: #00BFFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .certification-button, .download-cv {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #00BFFF;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
+        }
+        .certification-button:hover, .download-cv:hover {
+            background-color: #009ACD;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dark-mode {
+            background-color: #1E1E1E;
+            color: #F0F0F0;
+        }
+        .dark-mode header, .dark-mode nav, .dark-mode footer {
+            background-color: #121212;
+        }
+        .dark-mode .card {
+            background-color: #252525;
+            color: #F0F0F0;
+        }
+        .dark-mode a {
+            color: #00BFFF;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="https://drive.google.com/file/d/1z6VEQwzovYAz_VM7uJXcQ9sUrio67dBy/view?usp=drivesdk" target="_blank" class="download-cv">Download CV</a>
+    <button class="mode-toggle" onclick="toggleMode()">🌙 Mode</button>
+</nav>
+
+<header>
+    <h1>Shantanu Kawtikwar</h1>
+    <p>B.Tech in Artificial Intelligence and Data Science</p>
+    <p>Dr. D.Y. Patil School Of Science & Technology</p>
+    <div class="typing-text" id="typing"></div>
+</header>
+
+<section id="about">
+    <div class="card">
+        <h2>About Me</h2>
+        <p>I'm a B.Tech student specializing in AI & Data Science, passionate about Machine Learning, Cloud, Web Development, and solving real-world problems through innovative solutions.</p>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="card">
+        <h2>Skills</h2>
+        <ul>
+            <li>Python, HTML, CSS, JavaScript (Basic), SQL (Basic)</li>
+            <li>Flask Framework, Web App Development, Frontend + Backend Basics</li>
+            <li>AI & ML: Core Concepts, Neural Networks, Transformers, Generative AI, Prompt Engineering</li>
+            <li>Cloud & DevOps: AWS, Google Cloud, AI/ML Cloud Solutions</li>
+            <li>Cybersecurity: Security, Governance, Compliance, Data Privacy</li>
+            <li>Professional Skills: Communication, Teamwork, Project Planning, Problem Solving</li>
+            <li>Data Analytics, FTP, Responsible AI</li>
+        </ul>
+    </div>
+</section>
+
+<section id="certifications">
+    <div class="card">
+        <h2>Certifications</h2>
+        <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320/details/certifications/" class="certification-button" target="_blank">View All Certificates on LinkedIn</a>
+        <ul>
+            <li>Python Essentials 1 (Cisco, May 2025)</li>
+            <li>AWS AI Practitioner (AWS, July 2025)</li>
+            <li>Foundations of Data Science for ML (Microsoft, July 2025)</li>
+            <li>Intermediate Machine Learning (Kaggle, July 2025)</li>
+            <li>Introduction to Machine Learning (Kaggle, July 2025)</li>
+            <li>Machine Learning with Python (freeCodeCamp, July 2025)</li>
+            <li>Deep Learning & Neural Network Fundamentals (Upgrad, July 2025)</li>
+            <li>AI Fundamentals with IBM SkillsBuild (Cisco, June 2025)</li>
+            <li>AI-Powered Performance Ads Certification (Google Ads, June 2025)</li>
+            <li>AWS - ML and AI Fundamentals (AWS, June 2025)</li>
+            <li>Artificial Intelligence Fundamentals (IBM, June 2025)</li>
+            <li>Google - Bring AI to Work Workshop (Google, June 2025)</li>
+            <li>Google Cloud (Skills Boost, June 2025)</li>
+            <li>HP Life AI for Beginners (HP, June 2025)</li>
+            <li>AI and Data Scientist Certification (OneRoadmap, May 2025)</li>
+            <li>Train and Evaluate Deep Learning Models (Microsoft, July 2025)</li>
+            <li>Understanding LLMs & Prompting Techniques (CodeSignal, July 2025)</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="card">
+        <h2>Job Simulations & Internships</h2>
+        <ul>
+            <li>Tata - Cybersecurity Analyst Job Simulation (TATA, July 2025)</li>
+            <li>Deloitte Australia - Tech Job Simulation (Forage, June 2025)</li>
+            <li>AWS APAC Solutions Architecture Job Simulation (Forage, May 2025)</li>
+            <li>Deloitte Australia - Data Analytics Job Simulation (Forage, May 2025)</li>
+        </ul>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="card">
+        <h2>Projects</h2>
+        <ul>
+            <li>Task Manager App</li>
+            <li>Expense Tracker</li>
+        </ul>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="card">
+        <h2>Contact</h2>
+        <div class="contact">
+            <p>Email: <a href="mailto:shantanukawtikwar1994@gamil.com">shantanukawtikwar1994@gamil.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank">LinkedIn Profile</a></p>
+            <p>GitHub: <a href="https://github.com/ShantanuKawtikwar" target="_blank">GitHub Profile</a></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Shantanu Kawtikwar | All Rights Reserved.</p>
+</footer>
+
+<script>
+    const texts = ["AI Engineer", "Web Developer", "Cloud Enthusiast", "Machine Learning Enthusiast"];
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
+
+    function type() {
+        if (count === texts.length) {
+            count = 0;
+        }
+        currentText = texts[count];
+        letter = currentText.slice(0, ++index);
+        document.getElementById('typing').textContent = letter;
+        if (letter.length === currentText.length) {
+            count++;
+            index = 0;
+            setTimeout(type, 1000);
+        } else {
+            setTimeout(type, 150);
+        }
+    }
+    type();
+
+    function toggleMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+</script>
+
+</body>
+</html>
