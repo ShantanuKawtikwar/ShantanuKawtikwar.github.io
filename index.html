@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Shantanu Kawtikwar | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         html {
             scroll-behavior: smooth;
@@ -193,16 +194,25 @@
     <div class="typing-text" id="typing"></div>
 </header>
 
-<section id="about">
+<section id="about" data-aos="fade-up">
     <div class="card">
         <h2>About Me</h2>
         <p>I'm a B.Tech student specializing in AI & Data Science, passionate about Machine Learning, Cloud, Web Development, and solving real-world problems through innovative solutions.</p>
     </div>
 </section>
 
-<section id="skills">
+<section id="skills" data-aos="fade-up">
     <div class="card">
         <h2>Skills</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px;">
+            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+            <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+            <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+            <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS">
+            <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud">
+        </div>
         <ul>
             <li>Python, HTML, CSS, JavaScript (Basic), SQL (Basic)</li>
             <li>Flask Framework, Web App Development, Frontend + Backend Basics</li>
@@ -215,7 +225,7 @@
     </div>
 </section>
 
-<section id="certifications">
+<section id="certifications" data-aos="fade-up">
     <div class="card">
         <h2>Certifications</h2>
         <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320/details/certifications/" class="certification-button" target="_blank">View All Certificates on LinkedIn</a>
@@ -241,7 +251,7 @@
     </div>
 </section>
 
-<section>
+<section data-aos="fade-up">
     <div class="card">
         <h2>Job Simulations & Internships</h2>
         <ul>
@@ -253,7 +263,7 @@
     </div>
 </section>
 
-<section id="projects">
+<section id="projects" data-aos="fade-up">
     <div class="card">
         <h2>Projects</h2>
         <ul>
@@ -263,7 +273,7 @@
     </div>
 </section>
 
-<section id="contact">
+<section id="contact" data-aos="fade-up">
     <div class="card">
         <h2>Contact</h2>
         <p>Email: <a href="mailto:shantanukawtikwar1994@gamil.com">shantanukawtikwar1994@gamil.com</a></p>
@@ -276,7 +286,9 @@
     <p>&copy; 2025 Shantanu Kawtikwar | All Rights Reserved.</p>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+    AOS.init();
     const texts = ["AI Engineer", "Web Developer", "Cloud Enthusiast", "Machine Learning Enthusiast"];
     let count = 0;
     let index = 0;
