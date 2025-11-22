@@ -734,4 +734,430 @@
 
             .hero-title {
                 font-size: 1.9rem;
+            }
+
+            .container {
+                padding-inline: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-badges img {
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <div class="nav-left">
+            <div class="nav-logo-circle">SK</div>
+            <div class="nav-name">Shantanu Kawtikwar</div>
+        </div>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-cta-group">
+            <a href="https://drive.google.com/file/d/1z6VEQwzovYAz_VM7uJXcQ9sUrio67dBy/view?usp=drivesdk"
+               target="_blank"
+               class="pill-btn primary">
+                <span>⬇</span> CV
+            </a>
+            <button class="pill-btn mode-toggle" onclick="toggleMode()">
+                <span>🌓</span> Mode
+            </button>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <div class="hero" data-aos="fade-up">
+            <div class="hero-left">
+                <div class="hero-badge-row">
+                    <div class="hero-badge">B.Tech · AI & Data Science</div>
+                    <div class="hero-pill-meta">Dr. D.Y. Patil School Of Science & Technology</div>
+                </div>
+
+                <h1 class="hero-title">
+                    Hi, I'm <span class="hero-highlight">Shantanu</span><br>
+                    <span class="hero-highlight">Kawtikwar</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    I'm a B.Tech student specializing in AI & Data Science, passionate about Machine Learning,
+                    Cloud, Web Development, and solving real-world problems through innovative solutions.
+                </p>
+
+                <p class="hero-meta">
+                    Crafting intelligent systems at the intersection of
+                    <span class="hero-highlight">AI · Cloud · Web</span>.
+                </p>
+
+                <div class="typing-text-wrapper">
+                    <span class="typing-label">Currently exploring:</span>
+                    <span class="typing-text" id="typing"></span><span class="cursor"></span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="pill-btn primary">
+                        🚀 View Projects
+                    </a>
+                    <a href="#contact" class="pill-btn">
+                        📩 Get in Touch
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-right" data-aos="fade-left">
+                <div class="hero-card">
+                    <div class="hero-card-inner">
+                        <div class="hero-tagline">AI · ML · CLOUD · WEB</div>
+                        <div class="hero-major">B.Tech in Artificial Intelligence and Data Science</div>
+                        <div class="hero-college">Dr. D.Y. Patil School Of Science & Technology</div>
+
+                        <div class="hero-chip-row">
+                            <div class="chip">Machine Learning</div>
+                            <div class="chip">Cloud Computing</div>
+                            <div class="chip">Web Development</div>
+                            <div class="chip">Cybersecurity</div>
+                        </div>
+
+                        <p class="hero-mini-meta">
+                            Focused on building AI-driven solutions with practical impact — from intelligent
+                            applications to secure and scalable cloud-native systems.
+                        </p>
+                    </div>
+
+                    <div class="hero-orbit"></div>
+                    <div class="hero-orbit-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- ABOUT -->
+    <section id="about" data-aos="fade-up">
+        <div class="section-header">
+            <div>
+                <div class="section-kicker">Intro</div>
+                <div class="section-title">About Me</div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>About Me</h2>
+            <p>
+                I'm a B.Tech student specializing in AI & Data Science, passionate about Machine Learning, Cloud, Web
+                Development, and solving real-world problems through innovative solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" data-aos="fade-up">
+        <div class="section-header">
+            <div>
+                <div class="section-kicker">Tech Stack</div>
+                <div class="section-title">Skills</div>
+                <div class="section-sub">Tools & technologies I’m comfortable working with.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Skills</h2>
+
+            <div class="skills-badges">
+                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+                <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+                <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+                <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+                <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS">
+                <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud">
+                <img src="https://img.shields.io/badge/Machine_Learning-FF6F00?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Machine Learning">
+                <img src="https://img.shields.io/badge/Deep_Learning-8E44AD?style=for-the-badge&logo=pytorch&logoColor=white" alt="Deep Learning">
+                <img src="https://img.shields.io/badge/Data_Science-1F77B4?style=for-the-badge&logo=jupyter&logoColor=white" alt="Data Science">
+                <img src="https://img.shields.io/badge/Artificial_Intelligence-4CAF50?style=for-the-badge&logo=ai&logoColor=white" alt="AI">
+                <img src="https://img.shields.io/badge/Prompt_Engineering-000000?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
+                <img src="https://img.shields.io/badge/Cybersecurity-2E86C1?style=for-the-badge&logo=cybersecurity&logoColor=white" alt="Cybersecurity">
+                <img src="https://img.shields.io/badge/Data_Analytics-FF5733?style=for-the-badge&logo=googleanalytics&logoColor=white" alt="Data Analytics">
+                <img src="https://img.shields.io/badge/Project_Management-FFB300?style=for-the-badge&logo=projectmanagement&logoColor=white" alt="Project Management">
+            </div>
+
+            <ul>
+                <li>Python, HTML, CSS, JavaScript (Basic), SQL (Basic)</li>
+                <li>Flask Framework, Web App Development, Frontend + Backend Basics</li>
+                <li>AI & ML: Core Concepts, Neural Networks, Transformers, Generative AI, Prompt Engineering</li>
+                <li>Cloud & DevOps: AWS, Google Cloud, AI/ML Cloud Solutions</li>
+                <li>Cybersecurity: Security, Governance, Compliance, Data Privacy</li>
+                <li>Professional Skills: Communication, Teamwork, Project Planning, Problem Solving</li>
+                <li>Data Analytics, FTP, Responsible AI</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" data-aos="fade-up">
+        <div class="section-header">
+            <div>
+                <div class="section-kicker">Journey</div>
+                <div class="section-title">2025 Timeline</div>
+                <div class="section-sub">Projects, simulations & experiences that shaped my learning in 2025.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">May 2025</div>
+                    <div class="timeline-title">AWS Solutions Architecture Job Simulation</div>
+                    <div class="timeline-meta">Amazon Web Services · Remote</div>
+                    <div class="timeline-desc">
+                        Completed AWS Solutions Architecture micro-internship, gaining practical skills in designing scalable hosting architecture.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">May 2025</div>
+                    <div class="timeline-title">Data Analytics Job Simulation</div>
+                    <div class="timeline-meta">Deloitte Australia · Remote</div>
+                    <div class="timeline-desc">
+                        Earned completion for Deloitte's Data Analytics micro-internship, working with data analysis, visualisation and forensic tech concepts.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">June 2025</div>
+                    <div class="timeline-title">Technology Job Simulation</div>
+                    <div class="timeline-meta">Deloitte Australia · Remote</div>
+                    <div class="timeline-desc">
+                        Explored technology workflows and real-world consulting scenarios, strengthening problem-solving and programming fundamentals.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">June 2025</div>
+                    <div class="timeline-title">Task Manager App</div>
+                    <div class="timeline-meta">Project · Personal</div>
+                    <div class="timeline-desc">
+                        Built a Task Manager to organise daily work — combining backend logic and clean UI to practice full-stack fundamentals.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">July 2025</div>
+                    <div class="timeline-title">Cybersecurity Analyst Job Simulation</div>
+                    <div class="timeline-meta">Tata Consultancy Services · Remote</div>
+                    <div class="timeline-desc">
+                        Hands-on exposure to IAM fundamentals, strategy assessment and platform integration, reinforcing interest in cybersecurity and governance.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">July 2025</div>
+                    <div class="timeline-title">Expense Manager</div>
+                    <div class="timeline-meta">Project · Personal</div>
+                    <div class="timeline-desc">
+                        Built an Expense Manager application to track spending and categories, focusing on clean UX and basic data visualisation.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">Jul–Aug 2025</div>
+                    <div class="timeline-title">Python Programming Intern</div>
+                    <div class="timeline-meta">VaultofCodes · Remote</div>
+                    <div class="timeline-desc">
+                        Worked on Python-based tasks and mini-projects, improving real-world coding, documentation and project management.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">Jul–Aug 2025</div>
+                    <div class="timeline-title">Open Source Contributor</div>
+                    <div class="timeline-meta">Open Source Connect India 2025</div>
+                    <div class="timeline-desc">
+                        Selected as an open source contributor, collaborating on community projects, PRs and knowledge sharing in India’s tech ecosystem.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">Aug 2025</div>
+                    <div class="timeline-title">Weather Application</div>
+                    <div class="timeline-meta">Project · Personal</div>
+                    <div class="timeline-desc">
+                        Developed a Weather Application using public APIs and JavaScript, with focus on responsive UI and clean data fetching.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-badge">Late 2025</div>
+                    <div class="timeline-title">Next Steps</div>
+                    <div class="timeline-meta">AI · Cloud · Security</div>
+                    <div class="timeline-desc">
+                        Continuing to build AI/ML and cloud-native projects, with a long-term goal of becoming an AI Engineer / Cloud ML Engineer.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" data-aos="fade-up">
+        <div class="section-header">
+            <div>
+                <div class="section-kicker">Upskilling</div>
+                <div class="section-title">Certifications</div>
+                <div class="section-sub">Hands-on courses and credentials I've completed.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Certifications</h2>
+            <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320/details/certifications/"
+               class="certification-button"
+               target="_blank">
+                🔗 View All Certificates on LinkedIn
+            </a>
+            <ul>
+                <li>Python Essentials 1 (Cisco, May 2025)</li>
+                <li>AWS AI Practitioner (AWS, July 2025)</li>
+                <li>Foundations of Data Science for ML (Microsoft, July 2025)</li>
+                <li>Intermediate Machine Learning (Kaggle, July 2025)</li>
+                <li>Introduction to Machine Learning (Kaggle, July 2025)</li>
+                <li>Machine Learning with Python (freeCodeCamp, July 2025)</li>
+                <li>Deep Learning & Neural Network Fundamentals (Upgrad, July 2025)</li>
+                <li>AI Fundamentals with IBM SkillsBuild (Cisco, June 2025)</li>
+                <li>AI-Powered Performance Ads Certification (Google Ads, June 2025)</li>
+                <li>AWS - ML and AI Fundamentals (AWS, June 2025)</li>
+                <li>Artificial Intelligence Fundamentals (IBM, June 2025)</li>
+                <li>Google - Bring AI to Work Workshop (Google, June 2025)</li>
+                <li>Google Cloud (Skills Boost, June 2025)</li>
+                <li>HP Life AI for Beginners (HP, June 2025)</li>
+                <li>AI and Data Scientist Certification (OneRoadmap, May 2025)</li>
+                <li>Train and Evaluate Deep Learning Models (Microsoft, July 2025)</li>
+                <li>Understanding LLMs & Prompting Techniques (CodeSignal, July 2025)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" data-aos="fade-up">
+        <div class="section-header">
+            <div>
+                <div class="section-kicker">Builds</div>
+                <div class="section-title">Projects</div>
+                <div class="section-sub">Some of the things I've been experimenting with.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Projects</h2>
+            <ul>
+                <li>Task Manager App</li>
+                <li>Expense Manager</li>
+                <li>Weather Application</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-aos="fade-up">
+        <div class="section-header">
+            <div>
+                <div class="section-kicker">Let’s Connect</div>
+                <div class="section-title">Contact</div>
+            </div>
+        </div>
+
+        <div class="card contact-links">
+            <h2>Contact</h2>
+            <p>
+                📧 Email:
+                <a href="mailto:shantanukawtikwar1994@gamil.com">
+                    shantanukawtikwar1994@gamil.com
+                </a>
+            </p>
+            <p>
+                💼 LinkedIn:
+                <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank">
+                    LinkedIn Profile
+                </a>
+            </p>
+            <p>
+                💻 GitHub:
+                <a href="https://github.com/ShantanuKawtikwar" target="_blank">
+                    GitHub Profile
+                </a>
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Shantanu Kawtikwar · All Rights Reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+
+    const texts = ["AI Engineer", "Web Developer", "Cloud Enthusiast", "Machine Learning Enthusiast"];
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
+
+    function type() {
+        if (count === texts.length) {
+            count = 0;
+        }
+        currentText = texts[count];
+        letter = currentText.slice(0, ++index);
+        document.getElementById('typing').textContent = letter;
+        if (letter.length === currentText.length) {
+            count++;
+            index = 0;
+            setTimeout(type, 900);
+        } else {
+            setTimeout(type, 160);
+        }
+    }
+    type();
+
+    function toggleMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+</script>
+
+</body>
+</html>
         
