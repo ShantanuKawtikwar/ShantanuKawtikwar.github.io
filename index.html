@@ -2,1162 +2,427 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shantanu Kawtikwar | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        :root {
-            /* Light pastel theme */
-            --bg-main: #F3F6FB;
-            --bg-secondary: #FFFFFF;
-            --glass-bg: rgba(255, 255, 255, 0.9);
-            --glass-border: #E3E7F0;
-            --accent: #38A3F1;        /* sky blue */
-            --accent-soft: rgba(56, 163, 241, 0.20);
-            --accent-2: #F5A623;      /* warm beige/orange */
-            --text-main: #1F2933;
-            --text-muted: #6B7280;
-            --danger: #f97373;
-            --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.08);
-            --radius-xl: 20px;
-            --radius-full: 999px;
-            --transition-fast: 0.22s ease;
-            --transition-slow: 0.4s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #E3F2FD 0%, #FFF4E0 45%, #FDFDFE 100%);
-            color: var(--text-main);
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            background:
-                radial-gradient(circle at 10% 15%, rgba(147, 197, 253, 0.35), transparent 55%),
-                radial-gradient(circle at 80% 25%, rgba(252, 211, 173, 0.35), transparent 55%),
-                radial-gradient(circle at 20% 80%, rgba(196, 240, 222, 0.35), transparent 60%);
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 1.5rem 1.2rem 4rem;
-        }
-
-        /* ===== NAVBAR ===== */
-        nav {
-            position: sticky;
-            top: 0.5rem;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            padding: 0 1.2rem;
-        }
-
-        .nav-inner {
-            width: 100%;
-            max-width: 1120px;
-            padding: 0.7rem 1.1rem;
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            justify-content: space-between;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
-            backdrop-filter: blur(16px);
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-logo-circle {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #38A3F1, #7EC9FF);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-        }
-
-        .nav-name {
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text-main);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.82rem;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .nav-links a {
-            position: relative;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            padding: 0.15rem 0;
-            transition: color var(--transition-fast);
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-2));
-            border-radius: 999px;
-            transition: width var(--transition-fast);
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta-group {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-        }
-
-        .pill-btn {
-            border-radius: var(--radius-full);
-            border: 1px solid var(--glass-border);
-            padding: 0.45rem 0.9rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            background: #F3F6FF;
-            color: var(--text-main);
-            text-decoration: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition:
-                background var(--transition-fast),
-                transform var(--transition-fast),
-                box-shadow var(--transition-fast),
-                border-color var(--transition-fast),
-                color var(--transition-fast);
-        }
-
-        .pill-btn span {
-            font-size: 1rem;
-        }
-
-        .pill-btn:hover {
-            transform: translateY(-1px);
-            border-color: var(--accent);
-            box-shadow: 0 8px 18px rgba(148, 163, 184, 0.4);
-            background: #E3F2FD;
-            color: #0F172A;
-        }
-
-        .pill-btn.primary {
-            background: linear-gradient(135deg, #38A3F1, #4F46E5);
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.5);
-        }
-
-        .pill-btn.primary:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #1D8CE0, #4338CA);
-            box-shadow: 0 14px 32px rgba(37, 99, 235, 0.6);
-        }
-
-        .mode-toggle {
-            font-size: 0.8rem;
-        }
-
-        /* ===== HERO FULLSCREEN ===== */
-        header {
-            padding-top: 3.2rem;
-            padding-bottom: 2.5rem;
-        }
-
-        header .container {
-            min-height: calc(100vh - 90px);
-            display: flex;
-            align-items: center;
-        }
-
-        .hero {
-            width: 100%;
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .hero-left {
-            position: relative;
-        }
-
-        .hero-badge-row {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 1.3rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-badge {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            border-radius: var(--radius-full);
-            padding: 0.35rem 0.8rem;
-            border: 1px solid var(--glass-border);
-            color: var(--accent);
-            background: #F2F7FF;
-        }
-
-        .hero-pill-meta {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 3vw + 0.8rem, 2.8rem);
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            margin-bottom: 0.6rem;
-            color: var(--text-main);
-        }
-
-        .hero-highlight {
-            background: linear-gradient(120deg, #38A3F1, #F5A623);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            max-width: 32rem;
-        }
-
-        .hero-meta {
-            font-size: 0.82rem;
-            color: var(--text-main);
-            margin-bottom: 0.8rem;
-        }
-
-        .typing-text-wrapper {
-            font-size: 0.86rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .typing-label {
-            font-size: 0.8rem;
-            opacity: 0.9;
-        }
-
-        .typing-text {
-            font-weight: 600;
-            font-size: 0.96rem;
-            color: var(--accent);
-            min-height: 1.4rem;
-            letter-spacing: 0.06em;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 1px;
-            height: 1.05rem;
-            margin-left: 3px;
-            background: var(--accent);
-            animation: blink 1s steps(2, start) infinite;
-        }
-
-        @keyframes blink {
-            to { visibility: hidden; }
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .hero-right {
-            position: relative;
-        }
-
-        .hero-card {
-            position: relative;
-            padding: 1.3rem 1.25rem;
-            border-radius: var(--radius-xl);
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-soft);
-            backdrop-filter: blur(16px);
-            overflow: hidden;
-        }
-
-        .hero-card::before {
-            content: "";
-            position: absolute;
-            inset: -40%;
-            background:
-                radial-gradient(circle at 10% 0%, rgba(56, 163, 241, 0.18), transparent 60%),
-                radial-gradient(circle at 90% 100%, rgba(245, 166, 35, 0.18), transparent 60%);
-            opacity: 1;
-        }
-
-        .hero-card-inner {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-tagline {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-major {
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-            color: var(--text-main);
-        }
-
-        .hero-college {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .hero-chip-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin: 1rem 0 0.6rem;
-        }
-
-        .chip {
-            font-size: 0.72rem;
-            padding: 0.25rem 0.7rem;
-            border-radius: var(--radius-full);
-            border: 1px solid var(--glass-border);
-            background: #F9FAFB;
-            color: var(--text-muted);
-        }
-
-        .hero-mini-meta {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-        }
-
-        .hero-orbit {
-            position: absolute;
-            inset: -14px;
-            border-radius: var(--radius-xl);
-            border: 1px dashed rgba(148, 163, 184, 0.35);
-            opacity: 0.5;
-        }
-
-        .hero-orbit-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-            position: absolute;
-            top: 14%;
-            right: 16%;
-            box-shadow: 0 0 12px rgba(56, 163, 241, 0.8);
-            animation: orbit 16s linear infinite;
-        }
-
-        @keyframes orbit {
-            0%   { transform: translate(0, 0); }
-            25%  { transform: translate(-12px, 12px); }
-            50%  { transform: translate(-6px, 20px); }
-            75%  { transform: translate(12px, 12px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        /* ===== SECTIONS ===== */
-        main.container {
-            padding-top: 2rem;
-        }
-
-        section {
-            margin-top: 2.5rem;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: baseline;
-            gap: 0.6rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-kicker {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: var(--accent-soft);
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .section-sub {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .card {
-            width: 100%;
-            background: var(--glass-bg);
-            border-radius: var(--radius-xl);
-            padding: 1.2rem 1.15rem;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-soft);
-            font-size: 0.86rem;
-            backdrop-filter: blur(14px);
-            position: relative;
-            overflow: hidden;
-            transition:
-                transform var(--transition-slow),
-                box-shadow var(--transition-slow),
-                border-color var(--transition-slow),
-                background var(--transition-slow);
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            inset: -60%;
-            opacity: 0;
-            background: radial-gradient(circle at 10% 0%, rgba(56, 163, 241, 0.18), transparent 55%);
-            transition: opacity var(--transition-slow);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(56, 163, 241, 0.8);
-            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.11);
-            background: #FFFFFF;
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card h2 {
-            font-size: 1rem;
-            margin-bottom: 0.6rem;
-            color: var(--text-main);
-        }
-
-        .card p {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .card ul {
-            margin-top: 0.5rem;
-            padding-left: 1.1rem;
-        }
-
-        .card li {
-            margin-bottom: 0.28rem;
-            font-size: 0.82rem;
-            color: #374151;
-        }
-
-        /* ===== SKILLS BADGES ===== */
-        .skills-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin: 0.35rem 0 0.85rem;
-        }
-
-        .skills-badges img {
-            height: 26px;
-            border-radius: 999px;
-            filter: drop-shadow(0 4px 10px rgba(148, 163, 184, 0.6));
-            transition: transform var(--transition-fast), filter var(--transition-fast);
-        }
-
-        .skills-badges img:hover {
-            transform: translateY(-1px);
-            filter: drop-shadow(0 6px 14px rgba(56, 163, 241, 0.6));
-        }
-
-        /* ===== TIMELINE ===== */
-        .timeline {
-            position: relative;
-            margin-top: 0.5rem;
-            padding-left: 1.5rem;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 6px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(
-                180deg,
-                #6EC1FF 0%,
-                #A0E7FF 35%,
-                #FFD9A0 75%,
-                #FFC27A 100%
-            );
-            border-radius: 10px;
-        }
-
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-            transition: .25s ease;
-        }
-        .timeline-item:hover {
-            transform: translateX(6px);
-        }
-
-
-        .timeline-dot {
-            position: absolute;
-            left: -4px;
-            top: 4px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #38A3F1;
-            border: 3px solid white;
-            box-shadow: 0 0 10px rgba(56,163,241,.6);
-            transition: .2s;
-        }
-        .timeline-item:hover .timeline-dot {
-            transform: scale(1.2);
-        }
-
-
-        .timeline-badge {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #9CA3AF;
-            margin-bottom: 0.1rem;
-        }
-
-        .timeline-title {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .timeline-meta {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-bottom: 0.2rem;
-        }
-
-        .timeline-desc {
-            font-size: 0.8rem;
-            color: #4B5563;
-        }
-
-        /* ===== BUTTONS SMALL ===== */
-        .certification-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            padding: 0.55rem 1.1rem;
-            border-radius: var(--radius-full);
-            background: #F3F6FF;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid var(--glass-border);
-            transition:
-                transform var(--transition-fast),
-                box-shadow var(--transition-fast),
-                border-color var(--transition-fast),
-                background var(--transition-fast),
-                color var(--transition-fast);
-        }
-
-        .certification-button:hover {
-            transform: translateY(-1px);
-            border-color: var(--accent);
-            background: #E3F2FD;
-            box-shadow: 0 10px 20px rgba(148, 163, 184, 0.45);
-            color: #0F172A;
-        }
-
-        /* ===== CONTACT ===== */
-        .contact-links p {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            margin-bottom: 0.35rem;
-            font-size: 0.82rem;
-            color: var(--text-main);
-        }
-
-        .contact-links a {
-            color: var(--accent);
-            text-decoration: none;
-            position: relative;
-            font-size: 0.82rem;
-        }
-
-        .contact-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0;
-            height: 1px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-2));
-            transition: width var(--transition-fast);
-        }
-
-        .contact-links a:hover::after {
-            width: 100%;
-        }
-
-        footer {
-            border-top: 1px solid #E5E7EB;
-            padding: 1.3rem;
-            font-size: 0.78rem;
-            text-align: center;
-            color: var(--text-muted);
-            margin-top: 2.5rem;
-            background: #F9FAFBCC;
-            backdrop-filter: blur(10px);
-        }
-
-        /* (optional) dark-mode = slightly deeper pastel */
-        .dark-mode {
-            background: linear-gradient(135deg, #D1E9FF 0%, #FCE7C8 45%, #F3F4F6 100%);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-            .hero-right {
-                order: -1;
-            }
-            header .container {
-                padding-top: 2.2rem;
-                padding-bottom: 2.5rem;
-                min-height: calc(100vh - 90px);
-            }
-        }
-
-        @media (max-width: 720px) {
-            .nav-inner {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.75rem;
-            }
-
-            .nav-links {
-                order: 2;
-                justify-content: center;
-            }
-
-            .nav-cta-group {
-                order: 1;
-            }
-
-            .hero {
-                gap: 1.6rem;
-            }
-
-            .hero-title {
-                font-size: 1.9rem;
-            }
-
-            .container {
-                padding-inline: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .skills-badges img {
-                height: 24px;
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shantanu Kawtikwar | AI & Data Science Portfolio</title>
+    <meta name="description" content="Portfolio of Shantanu Kawtikwar — B.Tech student specializing in AI & Data Science, passionate about Machine Learning, Cloud, and Web Development.">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
+<div id="scroll-progress"></div>
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
     <div class="nav-inner">
-        <div class="nav-left">
-            <div class="nav-logo-circle">SK</div>
-            <div class="nav-name">Shantanu Kawtikwar</div>
-        </div>
-
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#timeline">Timeline</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-
-        <div class="nav-cta-group">
-            <a href="https://drive.google.com/file/d/1z6VEQwzovYAz_VM7uJXcQ9sUrio67dBy/view?usp=drivesdk"
-               target="_blank"
-               class="pill-btn primary">
-                <span>⬇</span> CV
-            </a>
-            <button class="pill-btn mode-toggle" onclick="toggleMode()">
-                <span>🌓</span> Mode
+        <a href="#" class="nav-brand">
+            <div class="nav-logo">SK</div>
+            <span class="nav-brand-name">Shantanu</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#certifications">Certs</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="https://drive.google.com/file/d/1z6VEQwzovYAz_VM7uJXcQ9sUrio67dBy/view?usp=drivesdk" target="_blank" class="btn-glow btn-primary">⬇ CV</a>
+            <button class="btn-icon" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </div>
 </nav>
 
-<header>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#skills" onclick="closeMobile()">Skills</a>
+    <a href="#timeline" onclick="closeMobile()">Timeline</a>
+    <a href="#certifications" onclick="closeMobile()">Certifications</a>
+    <a href="#projects" onclick="closeMobile()">Projects</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero-section">
     <div class="container">
-        <div class="hero" data-aos="fade-up">
+        <div class="hero-grid">
             <div class="hero-left">
-                <div class="hero-badge-row">
-                    <div class="hero-badge">B.Tech · AI & Data Science</div>
-                    <div class="hero-pill-meta">Dr. D.Y. Patil School Of Science & Technology</div>
+                <div class="hero-badge reveal">
+                    <div class="pulse-dot"></div>
+                    B.Tech · AI & Data Science
                 </div>
-
-                <h1 class="hero-title">
-                    Hi, I'm <span class="hero-highlight">Shantanu</span><br>
-                    <span class="hero-highlight">Kawtikwar</span>
+                <p class="hero-greeting reveal reveal-delay-1">Hello, I'm</p>
+                <h1 class="hero-title reveal reveal-delay-2">
+                    <span class="gradient-text">Shantanu</span><br>
+                    <span class="gradient-text">Kawtikwar</span>
                 </h1>
-
-                <p class="hero-subtitle">
-                    I'm a B.Tech student specializing in AI & Data Science, passionate about Machine Learning,
-                    Cloud, Web Development, and solving real-world problems through innovative solutions.
+                <p class="hero-subtitle reveal reveal-delay-3">
+                    Passionate about Machine Learning, Cloud, Web Development, and solving real-world problems through innovative solutions.
                 </p>
-
-                <p class="hero-meta">
-                    Crafting intelligent systems at the intersection of
-                    <span class="hero-highlight">AI · Cloud · Web</span>.
-                </p>
-
-                <div class="typing-text-wrapper">
-                    <span class="typing-label">Currently exploring:</span>
-                    <span class="typing-text" id="typing"></span><span class="cursor"></span>
+                <div class="typing-wrapper reveal reveal-delay-3">
+                    <span>Currently exploring:</span>
+                    <span class="typing-text" id="typing"></span><span class="cursor-blink"></span>
                 </div>
-
-                <div class="hero-actions">
-                    <a href="#projects" class="pill-btn primary">
-                        🚀 View Projects
-                    </a>
-                    <a href="#contact" class="pill-btn">
-                        📩 Get in Touch
-                    </a>
+                <div class="hero-actions reveal reveal-delay-4">
+                    <a href="#projects" class="btn-glow btn-primary">🚀 View Projects</a>
+                    <a href="#contact" class="btn-glow btn-outline">📩 Get in Touch</a>
+                </div>
+                <div class="hero-stats reveal reveal-delay-5">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="17">0</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Projects Built</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="8">0</div>
+                        <div class="stat-label">Experiences</div>
+                    </div>
                 </div>
             </div>
-
-            <div class="hero-right" data-aos="fade-left">
-                <div class="hero-card">
-                    <div class="hero-card-inner">
-                        <div class="hero-tagline">AI · ML · CLOUD · WEB</div>
-                        <div class="hero-major">B.Tech in Artificial Intelligence and Data Science</div>
-                        <div class="hero-college">Dr. D.Y. Patil School Of Science & Technology</div>
-
-                        <div class="hero-chip-row">
-                            <div class="chip">Machine Learning</div>
-                            <div class="chip">Cloud Computing</div>
-                            <div class="chip">Web Development</div>
-                            <div class="chip">Cybersecurity</div>
-                        </div>
-
-                        <p class="hero-mini-meta">
-                            Focused on building AI-driven solutions with practical impact — from intelligent
-                            applications to secure and scalable cloud-native systems.
-                        </p>
+            <div class="hero-visual reveal reveal-delay-2">
+                <div class="hero-card-3d">
+                    <div class="card-header-tag">AI · ML · CLOUD · WEB</div>
+                    <div class="card-title-lg">B.Tech in Artificial Intelligence and Data Science</div>
+                    <div class="card-subtitle">Dr. D.Y. Patil School Of Science & Technology</div>
+                    <div class="chip-row">
+                        <span class="chip">Machine Learning</span>
+                        <span class="chip">Cloud Computing</span>
+                        <span class="chip">Web Development</span>
+                        <span class="chip">Cybersecurity</span>
                     </div>
-
-                    <div class="hero-orbit"></div>
-                    <div class="hero-orbit-dot"></div>
+                    <p class="card-desc">Focused on building AI-driven solutions with practical impact — from intelligent applications to secure and scalable cloud-native systems.</p>
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-dot"></div>
                 </div>
             </div>
         </div>
     </div>
-</header>
+</section>
 
-<main class="container">
-    <!-- ABOUT -->
-    <section id="about" data-aos="fade-up">
-        <div class="section-header">
-            <div>
-                <div class="section-kicker">Intro</div>
-                <div class="section-title">About Me</div>
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-kicker">Intro</div>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-desc">Get to know a little more about who I am and what drives me.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card reveal reveal-delay-1">
+                <h3>👋 Who I Am</h3>
+                <p>I'm a B.Tech student specializing in AI & Data Science at Dr. D.Y. Patil School Of Science & Technology. I'm passionate about Machine Learning, Cloud Computing, Web Development, and solving real-world problems through innovative solutions.</p>
+                <p style="margin-top:0.8rem">I craft intelligent systems at the intersection of <strong style="color:var(--accent)">AI · Cloud · Web</strong>, with a long-term goal of becoming an AI Engineer / Cloud ML Engineer.</p>
             </div>
-        </div>
-        <div class="card">
-            <h2>About Me</h2>
-            <p>
-                I'm a B.Tech student specializing in AI & Data Science, passionate about Machine Learning, Cloud, Web
-                Development, and solving real-world problems through innovative solutions.
-            </p>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" data-aos="fade-up">
-        <div class="section-header">
-            <div>
-                <div class="section-kicker">Tech Stack</div>
-                <div class="section-title">Skills</div>
-                <div class="section-sub">Tools & technologies I’m comfortable working with.</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Skills</h2>
-
-            <div class="skills-badges">
-                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-                <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-                <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-                <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
-                <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS">
-                <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud">
-                <img src="https://img.shields.io/badge/Machine_Learning-FF6F00?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Machine Learning">
-                <img src="https://img.shields.io/badge/Deep_Learning-8E44AD?style=for-the-badge&logo=pytorch&logoColor=white" alt="Deep Learning">
-                <img src="https://img.shields.io/badge/Data_Science-1F77B4?style=for-the-badge&logo=jupyter&logoColor=white" alt="Data Science">
-                <img src="https://img.shields.io/badge/Artificial_Intelligence-4CAF50?style=for-the-badge&logo=ai&logoColor=white" alt="AI">
-                <img src="https://img.shields.io/badge/Prompt_Engineering-000000?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
-                <img src="https://img.shields.io/badge/Cybersecurity-2E86C1?style=for-the-badge&logo=cybersecurity&logoColor=white" alt="Cybersecurity">
-                <img src="https://img.shields.io/badge/Data_Analytics-FF5733?style=for-the-badge&logo=googleanalytics&logoColor=white" alt="Data Analytics">
-                <img src="https://img.shields.io/badge/Project_Management-FFB300?style=for-the-badge&logo=projectmanagement&logoColor=white" alt="Project Management">
-            </div>
-
-            <ul>
-                <li>Python, HTML, CSS, JavaScript (Basic), SQL (Basic)</li>
-                <li>Flask Framework, Web App Development, Frontend + Backend Basics</li>
-                <li>AI & ML: Core Concepts, Neural Networks, Transformers, Generative AI, Prompt Engineering</li>
-                <li>Cloud & DevOps: AWS, Google Cloud, AI/ML Cloud Solutions</li>
-                <li>Cybersecurity: Security, Governance, Compliance, Data Privacy</li>
-                <li>Professional Skills: Communication, Teamwork, Project Planning, Problem Solving</li>
-                <li>Data Analytics, FTP, Responsible AI</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section id="timeline" data-aos="fade-up">
-        <div class="section-header">
-            <div>
-                <div class="section-kicker">Journey</div>
-                <div class="section-title">2025 Timeline</div>
-                <div class="section-sub">Projects, simulations & experiences that shaped my learning in 2025.</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">May 2025</div>
-                    <div class="timeline-title">AWS Solutions Architecture Job Simulation</div>
-                    <div class="timeline-meta">Amazon Web Services · Remote</div>
-                    <div class="timeline-desc">
-                        Completed AWS Solutions Architecture micro-internship, gaining practical skills in designing scalable hosting architecture.
+            <div class="about-card reveal reveal-delay-2">
+                <h3>⚡ Quick Highlights</h3>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🎓</div>
+                        <div class="highlight-value" data-count="17">0</div>
+                        <div class="highlight-label">Certifications</div>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">May 2025</div>
-                    <div class="timeline-title">Data Analytics Job Simulation</div>
-                    <div class="timeline-meta">Deloitte Australia · Remote</div>
-                    <div class="timeline-desc">
-                        Earned completion for Deloitte's Data Analytics micro-internship, working with data analysis, visualisation and forensic tech concepts.
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🚀</div>
+                        <div class="highlight-value" data-count="3">0</div>
+                        <div class="highlight-label">Projects</div>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">June 2025</div>
-                    <div class="timeline-title">Technology Job Simulation</div>
-                    <div class="timeline-meta">Deloitte Australia · Remote</div>
-                    <div class="timeline-desc">
-                        Explored technology workflows and real-world consulting scenarios, strengthening problem-solving and programming fundamentals.
+                    <div class="highlight-item">
+                        <div class="highlight-icon">💼</div>
+                        <div class="highlight-value" data-count="4">0</div>
+                        <div class="highlight-label">Simulations</div>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">June 2025</div>
-                    <div class="timeline-title">Task Manager App</div>
-                    <div class="timeline-meta">Project · Personal</div>
-                    <div class="timeline-desc">
-                        Built a Task Manager to organise daily work — combining backend logic and clean UI to practice full-stack fundamentals.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">July 2025</div>
-                    <div class="timeline-title">Cybersecurity Analyst Job Simulation</div>
-                    <div class="timeline-meta">Tata Consultancy Services · Remote</div>
-                    <div class="timeline-desc">
-                        Hands-on exposure to IAM fundamentals, strategy assessment and platform integration, reinforcing interest in cybersecurity and governance.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">July 2025</div>
-                    <div class="timeline-title">Expense Manager</div>
-                    <div class="timeline-meta">Project · Personal</div>
-                    <div class="timeline-desc">
-                        Built an Expense Manager application to track spending and categories, focusing on clean UX and basic data visualisation.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">Jul–Aug 2025</div>
-                    <div class="timeline-title">Python Programming Intern</div>
-                    <div class="timeline-meta">VaultofCodes · Remote</div>
-                    <div class="timeline-desc">
-                        Worked on Python-based tasks and mini-projects, improving real-world coding, documentation and project management.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">Jul–Aug 2025</div>
-                    <div class="timeline-title">Open Source Contributor</div>
-                    <div class="timeline-meta">Open Source Connect India 2025</div>
-                    <div class="timeline-desc">
-                        Selected as an open source contributor, collaborating on community projects, PRs and knowledge sharing in India’s tech ecosystem.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">Aug 2025</div>
-                    <div class="timeline-title">Weather Application</div>
-                    <div class="timeline-meta">Project · Personal</div>
-                    <div class="timeline-desc">
-                        Developed a Weather Application using public APIs and JavaScript, with focus on responsive UI and clean data fetching.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-badge">Late 2025</div>
-                    <div class="timeline-title">Next Steps</div>
-                    <div class="timeline-meta">AI · Cloud · Security</div>
-                    <div class="timeline-desc">
-                        Continuing to build AI/ML and cloud-native projects, with a long-term goal of becoming an AI Engineer / Cloud ML Engineer.
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🌐</div>
+                        <div class="highlight-value" data-count="2">0</div>
+                        <div class="highlight-label">Internships</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" data-aos="fade-up">
-        <div class="section-header">
-            <div>
-                <div class="section-kicker">Upskilling</div>
-                <div class="section-title">Certifications</div>
-                <div class="section-sub">Hands-on courses and credentials I've completed.</div>
+<!-- SKILLS -->
+<section id="skills">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-kicker">Tech Stack</div>
+            <h2 class="section-title">Skills</h2>
+            <p class="section-desc">Tools & technologies I'm comfortable working with.</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card reveal reveal-delay-1">
+                <div class="skill-card-header">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-card-title">Languages</div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            <div class="skill-card reveal reveal-delay-2">
+                <div class="skill-card-header">
+                    <div class="skill-icon">🔧</div>
+                    <div class="skill-card-title">Frameworks & Tools</div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Web App Dev</span>
+                    <span class="skill-tag">Frontend</span>
+                    <span class="skill-tag">Backend</span>
+                    <span class="skill-tag">REST APIs</span>
+                </div>
+            </div>
+            <div class="skill-card reveal reveal-delay-3">
+                <div class="skill-card-header">
+                    <div class="skill-icon">🤖</div>
+                    <div class="skill-card-title">AI & Machine Learning</div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Neural Networks</span>
+                    <span class="skill-tag">Transformers</span>
+                    <span class="skill-tag">Generative AI</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">Deep Learning</span>
+                </div>
+            </div>
+            <div class="skill-card reveal reveal-delay-4">
+                <div class="skill-card-header">
+                    <div class="skill-icon">☁️</div>
+                    <div class="skill-card-title">Cloud & DevOps</div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Google Cloud</span>
+                    <span class="skill-tag">AI/ML Cloud</span>
+                    <span class="skill-tag">Cloud Architecture</span>
+                </div>
+            </div>
+            <div class="skill-card reveal reveal-delay-5">
+                <div class="skill-card-header">
+                    <div class="skill-icon">🔒</div>
+                    <div class="skill-card-title">Cybersecurity</div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Security</span>
+                    <span class="skill-tag">Governance</span>
+                    <span class="skill-tag">Compliance</span>
+                    <span class="skill-tag">Data Privacy</span>
+                    <span class="skill-tag">IAM</span>
+                </div>
+            </div>
+            <div class="skill-card reveal reveal-delay-6">
+                <div class="skill-card-header">
+                    <div class="skill-icon">🧠</div>
+                    <div class="skill-card-title">Professional Skills</div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Teamwork</span>
+                    <span class="skill-tag">Project Planning</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Data Analytics</span>
+                </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="card">
-            <h2>Certifications</h2>
-            <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320/details/certifications/"
-               class="certification-button"
-               target="_blank">
-                🔗 View All Certificates on LinkedIn
+<!-- TIMELINE -->
+<section id="timeline">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-kicker">Journey</div>
+            <h2 class="section-title">2025 Timeline</h2>
+            <p class="section-desc">Projects, simulations & experiences that shaped my learning.</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal"><div class="timeline-dot"></div>
+                <div class="timeline-date">May 2025</div>
+                <div class="timeline-title">AWS Solutions Architecture Job Simulation</div>
+                <div class="timeline-meta">Amazon Web Services · Remote</div>
+                <div class="timeline-desc">Completed AWS Solutions Architecture micro-internship, gaining practical skills in designing scalable hosting architecture.</div>
+            </div>
+            <div class="timeline-item reveal reveal-delay-1"><div class="timeline-dot"></div>
+                <div class="timeline-date">May 2025</div>
+                <div class="timeline-title">Data Analytics Job Simulation</div>
+                <div class="timeline-meta">Deloitte Australia · Remote</div>
+                <div class="timeline-desc">Earned completion for Deloitte's Data Analytics micro-internship, working with data analysis, visualisation and forensic tech concepts.</div>
+            </div>
+            <div class="timeline-item reveal reveal-delay-2"><div class="timeline-dot"></div>
+                <div class="timeline-date">June 2025</div>
+                <div class="timeline-title">Technology Job Simulation</div>
+                <div class="timeline-meta">Deloitte Australia · Remote</div>
+                <div class="timeline-desc">Explored technology workflows and real-world consulting scenarios, strengthening problem-solving and programming fundamentals.</div>
+            </div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div>
+                <div class="timeline-date">June 2025</div>
+                <div class="timeline-title">Task Manager App</div>
+                <div class="timeline-meta">Project · Personal</div>
+                <div class="timeline-desc">Built a Task Manager to organise daily work — combining backend logic and clean UI to practice full-stack fundamentals.</div>
+            </div>
+            <div class="timeline-item reveal reveal-delay-1"><div class="timeline-dot"></div>
+                <div class="timeline-date">July 2025</div>
+                <div class="timeline-title">Cybersecurity Analyst Job Simulation</div>
+                <div class="timeline-meta">Tata Consultancy Services · Remote</div>
+                <div class="timeline-desc">Hands-on exposure to IAM fundamentals, strategy assessment and platform integration, reinforcing interest in cybersecurity and governance.</div>
+            </div>
+            <div class="timeline-item reveal reveal-delay-2"><div class="timeline-dot"></div>
+                <div class="timeline-date">July 2025</div>
+                <div class="timeline-title">Expense Manager</div>
+                <div class="timeline-meta">Project · Personal</div>
+                <div class="timeline-desc">Built an Expense Manager application to track spending and categories, focusing on clean UX and basic data visualisation.</div>
+            </div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div>
+                <div class="timeline-date">Jul–Aug 2025</div>
+                <div class="timeline-title">Python Programming Intern</div>
+                <div class="timeline-meta">VaultofCodes · Remote</div>
+                <div class="timeline-desc">Worked on Python-based tasks and mini-projects, improving real-world coding, documentation and project management.</div>
+            </div>
+            <div class="timeline-item reveal reveal-delay-1"><div class="timeline-dot"></div>
+                <div class="timeline-date">Jul–Aug 2025</div>
+                <div class="timeline-title">Open Source Contributor</div>
+                <div class="timeline-meta">Open Source Connect India 2025</div>
+                <div class="timeline-desc">Selected as an open source contributor, collaborating on community projects, PRs and knowledge sharing in India's tech ecosystem.</div>
+            </div>
+            <div class="timeline-item reveal reveal-delay-2"><div class="timeline-dot"></div>
+                <div class="timeline-date">Aug 2025</div>
+                <div class="timeline-title">Weather Application</div>
+                <div class="timeline-meta">Project · Personal</div>
+                <div class="timeline-desc">Developed a Weather Application using public APIs and JavaScript, with focus on responsive UI and clean data fetching.</div>
+            </div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div>
+                <div class="timeline-date">Late 2025</div>
+                <div class="timeline-title">Next Steps</div>
+                <div class="timeline-meta">AI · Cloud · Security</div>
+                <div class="timeline-desc">Continuing to build AI/ML and cloud-native projects, with a long-term goal of becoming an AI Engineer / Cloud ML Engineer.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-kicker">Upskilling</div>
+            <h2 class="section-title">Certifications</h2>
+            <p class="section-desc">Hands-on courses and credentials I've completed.</p>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card reveal"><div class="cert-icon">🐍</div><div class="cert-info"><div class="cert-name">Python Essentials 1</div><div class="cert-issuer">Cisco · May 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">☁️</div><div class="cert-info"><div class="cert-name">AWS AI Practitioner</div><div class="cert-issuer">AWS · July 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">📊</div><div class="cert-info"><div class="cert-name">Foundations of Data Science for ML</div><div class="cert-issuer">Microsoft · July 2025</div></div></div>
+            <div class="cert-card reveal"><div class="cert-icon">🤖</div><div class="cert-info"><div class="cert-name">Intermediate Machine Learning</div><div class="cert-issuer">Kaggle · July 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">🧠</div><div class="cert-info"><div class="cert-name">Introduction to Machine Learning</div><div class="cert-issuer">Kaggle · July 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">⚙️</div><div class="cert-info"><div class="cert-name">Machine Learning with Python</div><div class="cert-issuer">freeCodeCamp · July 2025</div></div></div>
+            <div class="cert-card reveal"><div class="cert-icon">🔬</div><div class="cert-info"><div class="cert-name">Deep Learning & Neural Networks</div><div class="cert-issuer">Upgrad · July 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">💡</div><div class="cert-info"><div class="cert-name">AI Fundamentals with IBM SkillsBuild</div><div class="cert-issuer">Cisco · June 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">📢</div><div class="cert-info"><div class="cert-name">AI-Powered Performance Ads</div><div class="cert-issuer">Google Ads · June 2025</div></div></div>
+            <div class="cert-card reveal"><div class="cert-icon">☁️</div><div class="cert-info"><div class="cert-name">AWS - ML and AI Fundamentals</div><div class="cert-issuer">AWS · June 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">🧪</div><div class="cert-info"><div class="cert-name">Artificial Intelligence Fundamentals</div><div class="cert-issuer">IBM · June 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">🌐</div><div class="cert-info"><div class="cert-name">Google Cloud</div><div class="cert-issuer">Skills Boost · June 2025</div></div></div>
+            <div class="cert-card reveal"><div class="cert-icon">🎯</div><div class="cert-info"><div class="cert-name">Google - Bring AI to Work Workshop</div><div class="cert-issuer">Google · June 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">💻</div><div class="cert-info"><div class="cert-name">HP Life AI for Beginners</div><div class="cert-issuer">HP · June 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">📜</div><div class="cert-info"><div class="cert-name">AI and Data Scientist Certification</div><div class="cert-issuer">OneRoadmap · May 2025</div></div></div>
+            <div class="cert-card reveal"><div class="cert-icon">🔬</div><div class="cert-info"><div class="cert-name">Train & Evaluate Deep Learning Models</div><div class="cert-issuer">Microsoft · July 2025</div></div></div>
+            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">💬</div><div class="cert-info"><div class="cert-name">Understanding LLMs & Prompting</div><div class="cert-issuer">CodeSignal · July 2025</div></div></div>
+        </div>
+        <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320/details/certifications/" target="_blank" class="cert-link-btn reveal" style="margin-top:2rem; display:inline-flex;">
+            🔗 View All on LinkedIn
+        </a>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-kicker">Builds</div>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-desc">Some of the things I've been building and experimenting with.</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card reveal reveal-delay-1">
+                <div class="project-icon">📋</div>
+                <div class="project-title">Task Manager App</div>
+                <div class="project-desc">A full-stack task management application to organise daily work — combining backend logic with a clean, intuitive UI for seamless productivity.</div>
+                <div class="project-tags">
+                    <span class="chip">Python</span>
+                    <span class="chip">Flask</span>
+                    <span class="chip">HTML/CSS</span>
+                    <span class="chip">Full-Stack</span>
+                </div>
+            </div>
+            <div class="project-card reveal reveal-delay-2">
+                <div class="project-icon">💰</div>
+                <div class="project-title">Expense Manager</div>
+                <div class="project-desc">Track spending across categories with clean data visualisation. Built with focus on intuitive UX, real-time updates, and responsive design.</div>
+                <div class="project-tags">
+                    <span class="chip">Python</span>
+                    <span class="chip">Data Viz</span>
+                    <span class="chip">UX Design</span>
+                    <span class="chip">Analytics</span>
+                </div>
+            </div>
+            <div class="project-card reveal reveal-delay-3">
+                <div class="project-icon">🌤️</div>
+                <div class="project-title">Weather Application</div>
+                <div class="project-desc">Real-time weather data fetched from public APIs with a beautiful, responsive interface. Built with JavaScript and modern CSS for a premium feel.</div>
+                <div class="project-tags">
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">REST API</span>
+                    <span class="chip">Responsive</span>
+                    <span class="chip">CSS3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-kicker">Let's Connect</div>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-desc">Feel free to reach out — I'd love to hear from you!</p>
+        </div>
+        <div class="contact-grid">
+            <a href="mailto:shantanukawtikwar1994@gamil.com" class="contact-card reveal reveal-delay-1">
+                <div class="contact-icon">📧</div>
+                <div><div class="contact-label">Email</div><div class="contact-value">shantanukawtikwar1994@gamil.com</div></div>
             </a>
-            <ul>
-                <li>Python Essentials 1 (Cisco, May 2025)</li>
-                <li>AWS AI Practitioner (AWS, July 2025)</li>
-                <li>Foundations of Data Science for ML (Microsoft, July 2025)</li>
-                <li>Intermediate Machine Learning (Kaggle, July 2025)</li>
-                <li>Introduction to Machine Learning (Kaggle, July 2025)</li>
-                <li>Machine Learning with Python (freeCodeCamp, July 2025)</li>
-                <li>Deep Learning & Neural Network Fundamentals (Upgrad, July 2025)</li>
-                <li>AI Fundamentals with IBM SkillsBuild (Cisco, June 2025)</li>
-                <li>AI-Powered Performance Ads Certification (Google Ads, June 2025)</li>
-                <li>AWS - ML and AI Fundamentals (AWS, June 2025)</li>
-                <li>Artificial Intelligence Fundamentals (IBM, June 2025)</li>
-                <li>Google - Bring AI to Work Workshop (Google, June 2025)</li>
-                <li>Google Cloud (Skills Boost, June 2025)</li>
-                <li>HP Life AI for Beginners (HP, June 2025)</li>
-                <li>AI and Data Scientist Certification (OneRoadmap, May 2025)</li>
-                <li>Train and Evaluate Deep Learning Models (Microsoft, July 2025)</li>
-                <li>Understanding LLMs & Prompting Techniques (CodeSignal, July 2025)</li>
-            </ul>
+            <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank" class="contact-card reveal reveal-delay-2">
+                <div class="contact-icon">💼</div>
+                <div><div class="contact-label">LinkedIn</div><div class="contact-value">Shantanu Kawtikwar</div></div>
+            </a>
+            <a href="https://github.com/ShantanuKawtikwar" target="_blank" class="contact-card reveal reveal-delay-3">
+                <div class="contact-icon">💻</div>
+                <div><div class="contact-label">GitHub</div><div class="contact-value">ShantanuKawtikwar</div></div>
+            </a>
         </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" data-aos="fade-up">
-        <div class="section-header">
-            <div>
-                <div class="section-kicker">Builds</div>
-                <div class="section-title">Projects</div>
-                <div class="section-sub">Some of the things I've been experimenting with.</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Projects</h2>
-            <ul>
-                <li>Task Manager App</li>
-                <li>Expense Manager</li>
-                <li>Weather Application</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" data-aos="fade-up">
-        <div class="section-header">
-            <div>
-                <div class="section-kicker">Let’s Connect</div>
-                <div class="section-title">Contact</div>
-            </div>
-        </div>
-
-        <div class="card contact-links">
-            <h2>Contact</h2>
-            <p>
-                📧 Email:
-                <a href="mailto:shantanukawtikwar1994@gamil.com">
-                    shantanukawtikwar1994@gamil.com
-                </a>
-            </p>
-            <p>
-                💼 LinkedIn:
-                <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank">
-                    LinkedIn Profile
-                </a>
-            </p>
-            <p>
-                💻 GitHub:
-                <a href="https://github.com/ShantanuKawtikwar" target="_blank">
-                    GitHub Profile
-                </a>
-            </p>
-        </div>
-    </section>
-</main>
+    </div>
+</section>
 
 <footer>
-    <p>&copy; 2025 Shantanu Kawtikwar · All Rights Reserved.</p>
+    <p>© 2025 Shantanu Kawtikwar · All Rights Reserved.</p>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({
-        duration: 800,
-        once: true
-    });
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
 
-    const texts = ["AI Engineer", "Web Developer", "Cloud Enthusiast", "Machine Learning Enthusiast"];
-    let count = 0;
-    let index = 0;
-    let currentText = '';
-    let letter = '';
-
-    function type() {
-        if (count === texts.length) {
-            count = 0;
-        }
-        currentText = texts[count];
-        letter = currentText.slice(0, ++index);
-        document.getElementById('typing').textContent = letter;
-        if (letter.length === currentText.length) {
-            count++;
-            index = 0;
-            setTimeout(type, 900);
-        } else {
-            setTimeout(type, 160);
-        }
-    }
-    type();
-
-    function toggleMode() {
-        document.body.classList.toggle('dark-mode');
-    }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
-        
