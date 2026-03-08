@@ -1,428 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shantanu Kawtikwar | AI & Data Science Portfolio</title>
-    <meta name="description" content="Portfolio of Shantanu Kawtikwar — B.Tech student specializing in AI & Data Science, passionate about Machine Learning, Cloud, and Web Development.">
+    <meta name="description"
+        content="Portfolio of Shantanu Kawtikwar — B.Tech student specializing in AI & Data Science, passionate about Machine Learning, Cloud, and Web Development.">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="scroll-progress"></div>
-<canvas id="particles-canvas"></canvas>
+    <div id="scroll-progress"></div>
+    <canvas id="particles-canvas"></canvas>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-    <div class="nav-inner">
-        <a href="#" class="nav-brand">
-            <div class="nav-logo">SK</div>
-            <span class="nav-brand-name">Shantanu</span>
-        </a>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#timeline">Timeline</a></li>
-            <li><a href="#certifications">Certs</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-            <a href="https://drive.google.com/file/d/1z6VEQwzovYAz_VM7uJXcQ9sUrio67dBy/view?usp=drivesdk" target="_blank" class="btn-glow btn-primary">⬇ CV</a>
-            <button class="btn-icon" id="theme-toggle" aria-label="Toggle theme">🌙</button>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <div class="nav-logo">SK</div>
+                <span class="nav-brand-name">Shantanu</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#certifications">Certs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://drive.google.com/file/d/1z6VEQwzovYAz_VM7uJXcQ9sUrio67dBy/view?usp=drivesdk"
+                    target="_blank" class="btn-glow btn-primary">⬇ CV</a>
+                <button class="btn-icon" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about" onclick="closeMobile()">About</a>
+        <a href="#skills" onclick="closeMobile()">Skills</a>
+        <a href="#timeline" onclick="closeMobile()">Timeline</a>
+        <a href="#certifications" onclick="closeMobile()">Certifications</a>
+        <a href="#projects" onclick="closeMobile()">Projects</a>
+        <a href="#articles" onclick="closeMobile()">Articles</a>
+        <a href="#contact" onclick="closeMobile()">Contact</a>
     </div>
-</nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-    <a href="#about" onclick="closeMobile()">About</a>
-    <a href="#skills" onclick="closeMobile()">Skills</a>
-    <a href="#timeline" onclick="closeMobile()">Timeline</a>
-    <a href="#certifications" onclick="closeMobile()">Certifications</a>
-    <a href="#projects" onclick="closeMobile()">Projects</a>
-    <a href="#contact" onclick="closeMobile()">Contact</a>
-</div>
-
-<!-- HERO -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-grid">
-            <div class="hero-left">
-                <div class="hero-badge reveal">
-                    <div class="pulse-dot"></div>
-                    B.Tech · AI & Data Science
-                </div>
-                <p class="hero-greeting reveal reveal-delay-1">Hello, I'm</p>
-                <h1 class="hero-title reveal reveal-delay-2">
-                    <span class="gradient-text">Shantanu</span><br>
-                    <span class="gradient-text">Kawtikwar</span>
-                </h1>
-                <p class="hero-subtitle reveal reveal-delay-3">
-                    Passionate about Machine Learning, Cloud, Web Development, and solving real-world problems through innovative solutions.
-                </p>
-                <div class="typing-wrapper reveal reveal-delay-3">
-                    <span>Currently exploring:</span>
-                    <span class="typing-text" id="typing"></span><span class="cursor-blink"></span>
-                </div>
-                <div class="hero-actions reveal reveal-delay-4">
-                    <a href="#projects" class="btn-glow btn-primary">🚀 View Projects</a>
-                    <a href="#contact" class="btn-glow btn-outline">📩 Get in Touch</a>
-                </div>
-                <div class="hero-stats reveal reveal-delay-5">
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="17">0</div>
-                        <div class="stat-label">Certifications</div>
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <div class="hero-badge reveal">
+                        <div class="pulse-dot"></div>
+                        B.Tech · AI & Data Science
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="3">0</div>
-                        <div class="stat-label">Projects Built</div>
+                    <p class="hero-greeting reveal reveal-delay-1">Hello, I'm</p>
+                    <h1 class="hero-title reveal reveal-delay-2">
+                        <span class="gradient-text">Shantanu</span><br>
+                        <span class="gradient-text">Kawtikwar</span>
+                    </h1>
+                    <p class="hero-subtitle reveal reveal-delay-3">
+                        Passionate about Machine Learning, Cloud, Web Development, and solving real-world problems
+                        through innovative solutions.
+                    </p>
+                    <div class="typing-wrapper reveal reveal-delay-3">
+                        <span>Currently exploring:</span>
+                        <span class="typing-text" id="typing"></span><span class="cursor-blink"></span>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="8">0</div>
-                        <div class="stat-label">Experiences</div>
+                    <div class="hero-actions reveal reveal-delay-4">
+                        <a href="#projects" class="btn-glow btn-primary">🚀 View Projects</a>
+                        <a href="#contact" class="btn-glow btn-outline">📩 Get in Touch</a>
+                    </div>
+                    <div class="hero-stats reveal reveal-delay-5">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="17">0</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">Projects Built</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="8">0</div>
+                            <div class="stat-label">Experiences</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual reveal reveal-delay-2">
+                    <div class="hero-card-3d">
+                        <div class="card-header-tag">AI · ML · CLOUD · WEB</div>
+                        <div class="card-title-lg">B.Tech in Artificial Intelligence and Data Science</div>
+                        <div class="card-subtitle">Dr. D.Y. Patil School Of Science & Technology</div>
+                        <div class="chip-row">
+                            <span class="chip">Machine Learning</span>
+                            <span class="chip">Cloud Computing</span>
+                            <span class="chip">Web Development</span>
+                            <span class="chip">Cybersecurity</span>
+                        </div>
+                        <p class="card-desc">Focused on building AI-driven solutions with practical impact — from
+                            intelligent applications to secure and scalable cloud-native systems.</p>
+                        <div class="orbit-ring"></div>
+                        <div class="orbit-dot"></div>
                     </div>
                 </div>
             </div>
-            <div class="hero-visual reveal reveal-delay-2">
-                <div class="hero-card-3d">
-                    <div class="card-header-tag">AI · ML · CLOUD · WEB</div>
-                    <div class="card-title-lg">B.Tech in Artificial Intelligence and Data Science</div>
-                    <div class="card-subtitle">Dr. D.Y. Patil School Of Science & Technology</div>
-                    <div class="chip-row">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-kicker">Intro</div>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-desc">Get to know a little more about who I am and what drives me.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card reveal reveal-delay-1">
+                    <h3>👋 Who I Am</h3>
+                    <p>I'm a B.Tech student specializing in AI & Data Science at Dr. D.Y. Patil School Of Science &
+                        Technology. I'm passionate about Machine Learning, Cloud Computing, Web Development, and solving
+                        real-world problems through innovative solutions.</p>
+                    <p style="margin-top:0.8rem">I craft intelligent systems at the intersection of <strong
+                            style="color:var(--accent)">AI · Cloud · Web</strong>, with a long-term goal of becoming an
+                        AI Engineer / Cloud ML Engineer.</p>
+                </div>
+                <div class="about-card reveal reveal-delay-2">
+                    <h3>⚡ Quick Highlights</h3>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🎓</div>
+                            <div class="highlight-value" data-count="17">0</div>
+                            <div class="highlight-label">Certifications</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🚀</div>
+                            <div class="highlight-value" data-count="3">0</div>
+                            <div class="highlight-label">Projects</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">💼</div>
+                            <div class="highlight-value" data-count="4">0</div>
+                            <div class="highlight-label">Simulations</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🌐</div>
+                            <div class="highlight-value" data-count="2">0</div>
+                            <div class="highlight-label">Internships</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-kicker">Tech Stack</div>
+                <h2 class="section-title">Skills</h2>
+                <p class="section-desc">Tools & technologies I'm comfortable working with.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal reveal-delay-1">
+                    <div class="skill-card-header">
+                        <div class="skill-icon">💻</div>
+                        <div class="skill-card-title">Languages</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal reveal-delay-2">
+                    <div class="skill-card-header">
+                        <div class="skill-icon">🔧</div>
+                        <div class="skill-card-title">Frameworks & Tools</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Web App Dev</span>
+                        <span class="skill-tag">Frontend</span>
+                        <span class="skill-tag">Backend</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal reveal-delay-3">
+                    <div class="skill-card-header">
+                        <div class="skill-icon">🤖</div>
+                        <div class="skill-card-title">AI & Machine Learning</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Neural Networks</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">Deep Learning</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal reveal-delay-4">
+                    <div class="skill-card-header">
+                        <div class="skill-icon">☁️</div>
+                        <div class="skill-card-title">Cloud & DevOps</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">AI/ML Cloud</span>
+                        <span class="skill-tag">Cloud Architecture</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal reveal-delay-5">
+                    <div class="skill-card-header">
+                        <div class="skill-icon">🔒</div>
+                        <div class="skill-card-title">Cybersecurity</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Security</span>
+                        <span class="skill-tag">Governance</span>
+                        <span class="skill-tag">Compliance</span>
+                        <span class="skill-tag">Data Privacy</span>
+                        <span class="skill-tag">IAM</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal reveal-delay-6">
+                    <div class="skill-card-header">
+                        <div class="skill-icon">🧠</div>
+                        <div class="skill-card-title">Professional Skills</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Project Planning</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Data Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-kicker">Journey</div>
+                <h2 class="section-title">2025 Timeline</h2>
+                <p class="section-desc">Projects, simulations & experiences that shaped my learning.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">May 2025</div>
+                    <div class="timeline-title">AWS Solutions Architecture Job Simulation</div>
+                    <div class="timeline-meta">Amazon Web Services · Remote</div>
+                    <div class="timeline-desc">Completed AWS Solutions Architecture micro-internship, gaining practical
+                        skills in designing scalable hosting architecture.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">May 2025</div>
+                    <div class="timeline-title">Data Analytics Job Simulation</div>
+                    <div class="timeline-meta">Deloitte Australia · Remote</div>
+                    <div class="timeline-desc">Earned completion for Deloitte's Data Analytics micro-internship, working
+                        with data analysis, visualisation and forensic tech concepts.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">June 2025</div>
+                    <div class="timeline-title">Technology Job Simulation</div>
+                    <div class="timeline-meta">Deloitte Australia · Remote</div>
+                    <div class="timeline-desc">Explored technology workflows and real-world consulting scenarios,
+                        strengthening problem-solving and programming fundamentals.</div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">June 2025</div>
+                    <div class="timeline-title">Task Manager App</div>
+                    <div class="timeline-meta">Project · Personal</div>
+                    <div class="timeline-desc">Built a Task Manager to organise daily work — combining backend logic and
+                        clean UI to practice full-stack fundamentals.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">July 2025</div>
+                    <div class="timeline-title">Cybersecurity Analyst Job Simulation</div>
+                    <div class="timeline-meta">Tata Consultancy Services · Remote</div>
+                    <div class="timeline-desc">Hands-on exposure to IAM fundamentals, strategy assessment and platform
+                        integration, reinforcing interest in cybersecurity and governance.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">July 2025</div>
+                    <div class="timeline-title">Expense Manager</div>
+                    <div class="timeline-meta">Project · Personal</div>
+                    <div class="timeline-desc">Built an Expense Manager application to track spending and categories,
+                        focusing on clean UX and basic data visualisation.</div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jul–Aug 2025</div>
+                    <div class="timeline-title">Python Programming Intern</div>
+                    <div class="timeline-meta">VaultofCodes · Remote</div>
+                    <div class="timeline-desc">Worked on Python-based tasks and mini-projects, improving real-world
+                        coding, documentation and project management.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jul–Aug 2025</div>
+                    <div class="timeline-title">Open Source Contributor</div>
+                    <div class="timeline-meta">Open Source Connect India 2025</div>
+                    <div class="timeline-desc">Selected as an open source contributor, collaborating on community
+                        projects, PRs and knowledge sharing in India's tech ecosystem.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Aug 2025</div>
+                    <div class="timeline-title">Weather Application</div>
+                    <div class="timeline-meta">Project · Personal</div>
+                    <div class="timeline-desc">Developed a Weather Application using public APIs and JavaScript, with
+                        focus on responsive UI and clean data fetching.</div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Late 2025</div>
+                    <div class="timeline-title">Next Steps</div>
+                    <div class="timeline-meta">AI · Cloud · Security</div>
+                    <div class="timeline-desc">Continuing to build AI/ML and cloud-native projects, with a long-term
+                        goal of becoming an AI Engineer / Cloud ML Engineer.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-kicker">Upskilling</div>
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-desc">Hands-on courses and credentials I've completed.</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card reveal">
+                    <div class="cert-icon">🐍</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Python Essentials 1</div>
+                        <div class="cert-issuer">Cisco · May 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-icon">☁️</div>
+                    <div class="cert-info">
+                        <div class="cert-name">AWS AI Practitioner</div>
+                        <div class="cert-issuer">AWS · July 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-2">
+                    <div class="cert-icon">📊</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Foundations of Data Science for ML</div>
+                        <div class="cert-issuer">Microsoft · July 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon">🤖</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Intermediate Machine Learning</div>
+                        <div class="cert-issuer">Kaggle · July 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-icon">🧠</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Introduction to Machine Learning</div>
+                        <div class="cert-issuer">Kaggle · July 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-2">
+                    <div class="cert-icon">⚙️</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Machine Learning with Python</div>
+                        <div class="cert-issuer">freeCodeCamp · July 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon">🔬</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Deep Learning & Neural Networks</div>
+                        <div class="cert-issuer">Upgrad · July 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-icon">💡</div>
+                    <div class="cert-info">
+                        <div class="cert-name">AI Fundamentals with IBM SkillsBuild</div>
+                        <div class="cert-issuer">Cisco · June 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-2">
+                    <div class="cert-icon">📢</div>
+                    <div class="cert-info">
+                        <div class="cert-name">AI-Powered Performance Ads</div>
+                        <div class="cert-issuer">Google Ads · June 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon">☁️</div>
+                    <div class="cert-info">
+                        <div class="cert-name">AWS - ML and AI Fundamentals</div>
+                        <div class="cert-issuer">AWS · June 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-icon">🧪</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Artificial Intelligence Fundamentals</div>
+                        <div class="cert-issuer">IBM · June 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-2">
+                    <div class="cert-icon">🌐</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Google Cloud</div>
+                        <div class="cert-issuer">Skills Boost · June 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon">🎯</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Google - Bring AI to Work Workshop</div>
+                        <div class="cert-issuer">Google · June 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-icon">💻</div>
+                    <div class="cert-info">
+                        <div class="cert-name">HP Life AI for Beginners</div>
+                        <div class="cert-issuer">HP · June 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-2">
+                    <div class="cert-icon">📜</div>
+                    <div class="cert-info">
+                        <div class="cert-name">AI and Data Scientist Certification</div>
+                        <div class="cert-issuer">OneRoadmap · May 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon">🔬</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Train & Evaluate Deep Learning Models</div>
+                        <div class="cert-issuer">Microsoft · July 2025</div>
+                    </div>
+                </div>
+                <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-icon">💬</div>
+                    <div class="cert-info">
+                        <div class="cert-name">Understanding LLMs & Prompting</div>
+                        <div class="cert-issuer">CodeSignal · July 2025</div>
+                    </div>
+                </div>
+            </div>
+            <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320/details/certifications/" target="_blank"
+                class="cert-link-btn reveal" style="margin-top:2rem; display:inline-flex;">
+                🔗 View All on LinkedIn
+            </a>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-kicker">Builds</div>
+                <h2 class="section-title">Projects</h2>
+                <p class="section-desc">Some of the things I've been building and experimenting with.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-icon-box"><span class="project-emoji">📈</span></div>
+                    <div class="project-title">SVM Classifier</div>
+                    <div class="project-desc">A robust machine learning model implemented from scratch to classify
+                        complex datasets using optimal hyperplanes.</div>
+                    <div class="project-tags">
+                        <span class="chip">Python</span>
                         <span class="chip">Machine Learning</span>
-                        <span class="chip">Cloud Computing</span>
-                        <span class="chip">Web Development</span>
-                        <span class="chip">Cybersecurity</span>
-                    </div>
-                    <p class="card-desc">Focused on building AI-driven solutions with practical impact — from intelligent applications to secure and scalable cloud-native systems.</p>
-                    <div class="orbit-ring"></div>
-                    <div class="orbit-dot"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-kicker">Intro</div>
-            <h2 class="section-title">About Me</h2>
-            <p class="section-desc">Get to know a little more about who I am and what drives me.</p>
-        </div>
-        <div class="about-grid">
-            <div class="about-card reveal reveal-delay-1">
-                <h3>👋 Who I Am</h3>
-                <p>I'm a B.Tech student specializing in AI & Data Science at Dr. D.Y. Patil School Of Science & Technology. I'm passionate about Machine Learning, Cloud Computing, Web Development, and solving real-world problems through innovative solutions.</p>
-                <p style="margin-top:0.8rem">I craft intelligent systems at the intersection of <strong style="color:var(--accent)">AI · Cloud · Web</strong>, with a long-term goal of becoming an AI Engineer / Cloud ML Engineer.</p>
-            </div>
-            <div class="about-card reveal reveal-delay-2">
-                <h3>⚡ Quick Highlights</h3>
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-icon">🎓</div>
-                        <div class="highlight-value" data-count="17">0</div>
-                        <div class="highlight-label">Certifications</div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon">🚀</div>
-                        <div class="highlight-value" data-count="3">0</div>
-                        <div class="highlight-label">Projects</div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon">💼</div>
-                        <div class="highlight-value" data-count="4">0</div>
-                        <div class="highlight-label">Simulations</div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon">🌐</div>
-                        <div class="highlight-value" data-count="2">0</div>
-                        <div class="highlight-label">Internships</div>
+                        <span class="chip">Math</span>
                     </div>
                 </div>
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-icon-box"><span class="project-emoji">🏠</span></div>
+                    <div class="project-title">Housing Price Prediction</div>
+                    <div class="project-desc">A predictive model leveraging advanced regression techniques to estimate
+                        real estate values based on diverse property features.</div>
+                    <div class="project-tags">
+                        <span class="chip">Python</span>
+                        <span class="chip">Regression</span>
+                        <span class="chip">Data Science</span>
+                    </div>
+                </div>
+                <div class="project-card reveal reveal-delay-3">
+                    <div class="project-icon-box"><span class="project-emoji">🤖</span></div>
+                    <div class="project-title">Jarvis - Desktop Assistant</div>
+                    <div class="project-desc">An intelligent, voice-activated offline desktop companion built to
+                        automate tasks, manage schedules, and control system functions.</div>
+                    <div class="project-tags">
+                        <span class="chip">Python</span>
+                        <span class="chip">AI</span>
+                        <span class="chip">Automation</span>
+                    </div>
+                </div>
+                <div class="project-card reveal reveal-delay-4">
+                    <div class="project-icon-box"><span class="project-emoji">🎯</span></div>
+                    <div class="project-title">K-Means Clustering</div>
+                    <div class="project-desc">An unsupervised learning algorithm implemented to segment customer data
+                        and discover underlying patterns in unlabelled datasets.</div>
+                    <div class="project-tags">
+                        <span class="chip">Python</span>
+                        <span class="chip">Clustering</span>
+                        <span class="chip">Algorithms</span>
+                    </div>
+                </div>
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-icon-box"><span class="project-emoji">📋</span></div>
+                    <div class="project-title">Task Manager App</div>
+                    <div class="project-desc">A full-stack task management application to organise daily work —
+                        combining backend logic with a clean, intuitive UI for seamless productivity.</div>
+                    <div class="project-tags">
+                        <span class="chip">Python</span>
+                        <span class="chip">Flask</span>
+                        <span class="chip">HTML/CSS</span>
+                        <span class="chip">Full-Stack</span>
+                    </div>
+                </div>
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-icon-box"><span class="project-emoji">💰</span></div>
+                    <div class="project-title">Expense Manager</div>
+                    <div class="project-desc">Track spending across categories with clean data visualisation. Built with
+                        focus on intuitive UX, real-time updates, and responsive design.</div>
+                    <div class="project-tags">
+                        <span class="chip">Python</span>
+                        <span class="chip">Data Viz</span>
+                        <span class="chip">UX Design</span>
+                        <span class="chip">Analytics</span>
+                    </div>
+                </div>
+                <div class="project-card reveal reveal-delay-3">
+                    <div class="project-icon-box"><span class="project-emoji">🌤️</span></div>
+                    <div class="project-title">Weather Application</div>
+                    <div class="project-desc">Real-time weather data fetched from public APIs with a beautiful,
+                        responsive interface. Built with JavaScript and modern CSS for a premium feel.</div>
+                    <div class="project-tags">
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">REST API</span>
+                        <span class="chip">Responsive</span>
+                        <span class="chip">CSS3</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- SKILLS -->
-<section id="skills">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-kicker">Tech Stack</div>
-            <h2 class="section-title">Skills</h2>
-            <p class="section-desc">Tools & technologies I'm comfortable working with.</p>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card reveal reveal-delay-1">
-                <div class="skill-card-header">
-                    <div class="skill-icon">💻</div>
-                    <div class="skill-card-title">Languages</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">SQL</span>
-                </div>
+    <!-- ARTICLES -->
+    <section id="articles">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-kicker">Writing</div>
+                <h2 class="section-title">Articles Published</h2>
+                <p class="section-desc">My thoughts and explorations in the world of tech and AI.</p>
             </div>
-            <div class="skill-card reveal reveal-delay-2">
-                <div class="skill-card-header">
-                    <div class="skill-icon">🔧</div>
-                    <div class="skill-card-title">Frameworks & Tools</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Flask</span>
-                    <span class="skill-tag">Web App Dev</span>
-                    <span class="skill-tag">Frontend</span>
-                    <span class="skill-tag">Backend</span>
-                    <span class="skill-tag">REST APIs</span>
-                </div>
-            </div>
-            <div class="skill-card reveal reveal-delay-3">
-                <div class="skill-card-header">
-                    <div class="skill-icon">🤖</div>
-                    <div class="skill-card-title">AI & Machine Learning</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Neural Networks</span>
-                    <span class="skill-tag">Transformers</span>
-                    <span class="skill-tag">Generative AI</span>
-                    <span class="skill-tag">Prompt Engineering</span>
-                    <span class="skill-tag">Deep Learning</span>
-                </div>
-            </div>
-            <div class="skill-card reveal reveal-delay-4">
-                <div class="skill-card-header">
-                    <div class="skill-icon">☁️</div>
-                    <div class="skill-card-title">Cloud & DevOps</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Google Cloud</span>
-                    <span class="skill-tag">AI/ML Cloud</span>
-                    <span class="skill-tag">Cloud Architecture</span>
-                </div>
-            </div>
-            <div class="skill-card reveal reveal-delay-5">
-                <div class="skill-card-header">
-                    <div class="skill-icon">🔒</div>
-                    <div class="skill-card-title">Cybersecurity</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Security</span>
-                    <span class="skill-tag">Governance</span>
-                    <span class="skill-tag">Compliance</span>
-                    <span class="skill-tag">Data Privacy</span>
-                    <span class="skill-tag">IAM</span>
-                </div>
-            </div>
-            <div class="skill-card reveal reveal-delay-6">
-                <div class="skill-card-header">
-                    <div class="skill-icon">🧠</div>
-                    <div class="skill-card-title">Professional Skills</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Communication</span>
-                    <span class="skill-tag">Teamwork</span>
-                    <span class="skill-tag">Project Planning</span>
-                    <span class="skill-tag">Problem Solving</span>
-                    <span class="skill-tag">Data Analytics</span>
-                </div>
+            <div class="projects-grid">
+                <a href="https://www.linkedin.com/posts/shantanu-kawtikwar-24a649320_why-ai-agents-are-the-next-big-thing-in-artificial-activity-7436338091772133376-m2BV?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFFAyhoBDsHW7N5NWz7bXos3uX8kdUcEZ6I"
+                    target="_blank" style="text-decoration:none; color:inherit;"
+                    class="project-card reveal reveal-delay-1">
+                    <div class="project-icon">📝</div>
+                    <div class="project-title" style="color:var(--accent)">Why AI Agents Are the Next Big Thing</div>
+                    <div class="project-desc">An in-depth exploration of AI agents and their transformative potential in
+                        modern technology ecosystems.</div>
+                    <div class="project-tags">
+                        <span class="chip">Artificial Intelligence</span>
+                        <span class="chip">Tech Trends</span>
+                    </div>
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- TIMELINE -->
-<section id="timeline">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-kicker">Journey</div>
-            <h2 class="section-title">2025 Timeline</h2>
-            <p class="section-desc">Projects, simulations & experiences that shaped my learning.</p>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item reveal"><div class="timeline-dot"></div>
-                <div class="timeline-date">May 2025</div>
-                <div class="timeline-title">AWS Solutions Architecture Job Simulation</div>
-                <div class="timeline-meta">Amazon Web Services · Remote</div>
-                <div class="timeline-desc">Completed AWS Solutions Architecture micro-internship, gaining practical skills in designing scalable hosting architecture.</div>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-kicker">Let's Connect</div>
+                <h2 class="section-title">Contact</h2>
+                <p class="section-desc">Feel free to reach out — I'd love to hear from you!</p>
             </div>
-            <div class="timeline-item reveal reveal-delay-1"><div class="timeline-dot"></div>
-                <div class="timeline-date">May 2025</div>
-                <div class="timeline-title">Data Analytics Job Simulation</div>
-                <div class="timeline-meta">Deloitte Australia · Remote</div>
-                <div class="timeline-desc">Earned completion for Deloitte's Data Analytics micro-internship, working with data analysis, visualisation and forensic tech concepts.</div>
-            </div>
-            <div class="timeline-item reveal reveal-delay-2"><div class="timeline-dot"></div>
-                <div class="timeline-date">June 2025</div>
-                <div class="timeline-title">Technology Job Simulation</div>
-                <div class="timeline-meta">Deloitte Australia · Remote</div>
-                <div class="timeline-desc">Explored technology workflows and real-world consulting scenarios, strengthening problem-solving and programming fundamentals.</div>
-            </div>
-            <div class="timeline-item reveal"><div class="timeline-dot"></div>
-                <div class="timeline-date">June 2025</div>
-                <div class="timeline-title">Task Manager App</div>
-                <div class="timeline-meta">Project · Personal</div>
-                <div class="timeline-desc">Built a Task Manager to organise daily work — combining backend logic and clean UI to practice full-stack fundamentals.</div>
-            </div>
-            <div class="timeline-item reveal reveal-delay-1"><div class="timeline-dot"></div>
-                <div class="timeline-date">July 2025</div>
-                <div class="timeline-title">Cybersecurity Analyst Job Simulation</div>
-                <div class="timeline-meta">Tata Consultancy Services · Remote</div>
-                <div class="timeline-desc">Hands-on exposure to IAM fundamentals, strategy assessment and platform integration, reinforcing interest in cybersecurity and governance.</div>
-            </div>
-            <div class="timeline-item reveal reveal-delay-2"><div class="timeline-dot"></div>
-                <div class="timeline-date">July 2025</div>
-                <div class="timeline-title">Expense Manager</div>
-                <div class="timeline-meta">Project · Personal</div>
-                <div class="timeline-desc">Built an Expense Manager application to track spending and categories, focusing on clean UX and basic data visualisation.</div>
-            </div>
-            <div class="timeline-item reveal"><div class="timeline-dot"></div>
-                <div class="timeline-date">Jul–Aug 2025</div>
-                <div class="timeline-title">Python Programming Intern</div>
-                <div class="timeline-meta">VaultofCodes · Remote</div>
-                <div class="timeline-desc">Worked on Python-based tasks and mini-projects, improving real-world coding, documentation and project management.</div>
-            </div>
-            <div class="timeline-item reveal reveal-delay-1"><div class="timeline-dot"></div>
-                <div class="timeline-date">Jul–Aug 2025</div>
-                <div class="timeline-title">Open Source Contributor</div>
-                <div class="timeline-meta">Open Source Connect India 2025</div>
-                <div class="timeline-desc">Selected as an open source contributor, collaborating on community projects, PRs and knowledge sharing in India's tech ecosystem.</div>
-            </div>
-            <div class="timeline-item reveal reveal-delay-2"><div class="timeline-dot"></div>
-                <div class="timeline-date">Aug 2025</div>
-                <div class="timeline-title">Weather Application</div>
-                <div class="timeline-meta">Project · Personal</div>
-                <div class="timeline-desc">Developed a Weather Application using public APIs and JavaScript, with focus on responsive UI and clean data fetching.</div>
-            </div>
-            <div class="timeline-item reveal"><div class="timeline-dot"></div>
-                <div class="timeline-date">Late 2025</div>
-                <div class="timeline-title">Next Steps</div>
-                <div class="timeline-meta">AI · Cloud · Security</div>
-                <div class="timeline-desc">Continuing to build AI/ML and cloud-native projects, with a long-term goal of becoming an AI Engineer / Cloud ML Engineer.</div>
+            <div class="contact-grid">
+                <a href="mailto:shantanukawtikwar1994@gamil.com" class="contact-card reveal reveal-delay-1">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">shantanukawtikwar1994@gamil.com</div>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank"
+                    class="contact-card reveal reveal-delay-2">
+                    <div class="contact-icon">💼</div>
+                    <div>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">Shantanu Kawtikwar</div>
+                    </div>
+                </a>
+                <a href="https://github.com/ShantanuKawtikwar" target="_blank"
+                    class="contact-card reveal reveal-delay-3">
+                    <div class="contact-icon">💻</div>
+                    <div>
+                        <div class="contact-label">GitHub</div>
+                        <div class="contact-value">ShantanuKawtikwar</div>
+                    </div>
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-kicker">Upskilling</div>
-            <h2 class="section-title">Certifications</h2>
-            <p class="section-desc">Hands-on courses and credentials I've completed.</p>
-        </div>
-        <div class="cert-grid">
-            <div class="cert-card reveal"><div class="cert-icon">🐍</div><div class="cert-info"><div class="cert-name">Python Essentials 1</div><div class="cert-issuer">Cisco · May 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">☁️</div><div class="cert-info"><div class="cert-name">AWS AI Practitioner</div><div class="cert-issuer">AWS · July 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">📊</div><div class="cert-info"><div class="cert-name">Foundations of Data Science for ML</div><div class="cert-issuer">Microsoft · July 2025</div></div></div>
-            <div class="cert-card reveal"><div class="cert-icon">🤖</div><div class="cert-info"><div class="cert-name">Intermediate Machine Learning</div><div class="cert-issuer">Kaggle · July 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">🧠</div><div class="cert-info"><div class="cert-name">Introduction to Machine Learning</div><div class="cert-issuer">Kaggle · July 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">⚙️</div><div class="cert-info"><div class="cert-name">Machine Learning with Python</div><div class="cert-issuer">freeCodeCamp · July 2025</div></div></div>
-            <div class="cert-card reveal"><div class="cert-icon">🔬</div><div class="cert-info"><div class="cert-name">Deep Learning & Neural Networks</div><div class="cert-issuer">Upgrad · July 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">💡</div><div class="cert-info"><div class="cert-name">AI Fundamentals with IBM SkillsBuild</div><div class="cert-issuer">Cisco · June 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">📢</div><div class="cert-info"><div class="cert-name">AI-Powered Performance Ads</div><div class="cert-issuer">Google Ads · June 2025</div></div></div>
-            <div class="cert-card reveal"><div class="cert-icon">☁️</div><div class="cert-info"><div class="cert-name">AWS - ML and AI Fundamentals</div><div class="cert-issuer">AWS · June 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">🧪</div><div class="cert-info"><div class="cert-name">Artificial Intelligence Fundamentals</div><div class="cert-issuer">IBM · June 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">🌐</div><div class="cert-info"><div class="cert-name">Google Cloud</div><div class="cert-issuer">Skills Boost · June 2025</div></div></div>
-            <div class="cert-card reveal"><div class="cert-icon">🎯</div><div class="cert-info"><div class="cert-name">Google - Bring AI to Work Workshop</div><div class="cert-issuer">Google · June 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">💻</div><div class="cert-info"><div class="cert-name">HP Life AI for Beginners</div><div class="cert-issuer">HP · June 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-2"><div class="cert-icon">📜</div><div class="cert-info"><div class="cert-name">AI and Data Scientist Certification</div><div class="cert-issuer">OneRoadmap · May 2025</div></div></div>
-            <div class="cert-card reveal"><div class="cert-icon">🔬</div><div class="cert-info"><div class="cert-name">Train & Evaluate Deep Learning Models</div><div class="cert-issuer">Microsoft · July 2025</div></div></div>
-            <div class="cert-card reveal reveal-delay-1"><div class="cert-icon">💬</div><div class="cert-info"><div class="cert-name">Understanding LLMs & Prompting</div><div class="cert-issuer">CodeSignal · July 2025</div></div></div>
-        </div>
-        <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320/details/certifications/" target="_blank" class="cert-link-btn reveal" style="margin-top:2rem; display:inline-flex;">
-            🔗 View All on LinkedIn
-        </a>
-    </div>
-</section>
+    <footer>
+        <p>© 2025 Shantanu Kawtikwar · All Rights Reserved.</p>
+    </footer>
 
-<!-- PROJECTS -->
-<section id="projects">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-kicker">Builds</div>
-            <h2 class="section-title">Projects</h2>
-            <p class="section-desc">Some of the things I've been building and experimenting with.</p>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card reveal reveal-delay-1">
-                <div class="project-icon">📋</div>
-                <div class="project-title">Task Manager App</div>
-                <div class="project-desc">A full-stack task management application to organise daily work — combining backend logic with a clean, intuitive UI for seamless productivity.</div>
-                <div class="project-tags">
-                    <span class="chip">Python</span>
-                    <span class="chip">Flask</span>
-                    <span class="chip">HTML/CSS</span>
-                    <span class="chip">Full-Stack</span>
-                </div>
-            </div>
-            <div class="project-card reveal reveal-delay-2">
-                <div class="project-icon">💰</div>
-                <div class="project-title">Expense Manager</div>
-                <div class="project-desc">Track spending across categories with clean data visualisation. Built with focus on intuitive UX, real-time updates, and responsive design.</div>
-                <div class="project-tags">
-                    <span class="chip">Python</span>
-                    <span class="chip">Data Viz</span>
-                    <span class="chip">UX Design</span>
-                    <span class="chip">Analytics</span>
-                </div>
-            </div>
-            <div class="project-card reveal reveal-delay-3">
-                <div class="project-icon">🌤️</div>
-                <div class="project-title">Weather Application</div>
-                <div class="project-desc">Real-time weather data fetched from public APIs with a beautiful, responsive interface. Built with JavaScript and modern CSS for a premium feel.</div>
-                <div class="project-tags">
-                    <span class="chip">JavaScript</span>
-                    <span class="chip">REST API</span>
-                    <span class="chip">Responsive</span>
-                    <span class="chip">CSS3</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
 
-<!-- CONTACT -->
-<section id="contact">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-kicker">Let's Connect</div>
-            <h2 class="section-title">Contact</h2>
-            <p class="section-desc">Feel free to reach out — I'd love to hear from you!</p>
-        </div>
-        <div class="contact-grid">
-            <a href="mailto:shantanukawtikwar1994@gamil.com" class="contact-card reveal reveal-delay-1">
-                <div class="contact-icon">📧</div>
-                <div><div class="contact-label">Email</div><div class="contact-value">shantanukawtikwar1994@gamil.com</div></div>
-            </a>
-            <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank" class="contact-card reveal reveal-delay-2">
-                <div class="contact-icon">💼</div>
-                <div><div class="contact-label">LinkedIn</div><div class="contact-value">Shantanu Kawtikwar</div></div>
-            </a>
-            <a href="https://github.com/ShantanuKawtikwar" target="_blank" class="contact-card reveal reveal-delay-3">
-                <div class="contact-icon">💻</div>
-                <div><div class="contact-label">GitHub</div><div class="contact-value">ShantanuKawtikwar</div></div>
-            </a>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <p>© 2025 Shantanu Kawtikwar · All Rights Reserved.</p>
-</footer>
-
-<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
