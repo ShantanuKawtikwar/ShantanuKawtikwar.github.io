@@ -26,20 +26,20 @@ const sphereMaterial = new THREE.MeshPhongMaterial({
 const particleCount = 400;
 for (let i = 0; i < particleCount; i++) {
     const mesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    
+
     // Distribute randomly in a spherical volume
     const r = 40 + Math.random() * 60;
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.acos((Math.random() * 2) - 1);
-    
+
     mesh.position.x = r * Math.sin(phi) * Math.cos(theta);
     mesh.position.y = r * Math.sin(phi) * Math.sin(theta);
     mesh.position.z = r * Math.cos(phi);
-    
+
     // Random scale
     const scale = 0.2 + Math.random() * 0.8;
     mesh.scale.set(scale, scale, scale);
-    
+
     // Store random rotation properties for animation
     mesh.userData = {
         speed: (Math.random() - 0.5) * 0.02,
@@ -47,7 +47,7 @@ for (let i = 0; i < particleCount; i++) {
         ry: Math.random() * Math.PI,
         rz: Math.random() * Math.PI
     };
-    
+
     particlesGroup.add(mesh);
 }
 
@@ -63,10 +63,7 @@ scene.add(pointLight);
 camera.position.z = 80;
 
 // Mouse Interaction
-let mouseX = 0;
-let mouseY = 0;
-let targetX = 0;
-let targetY = 0;
+let mouseX = 0; let mouseY = 0;
 
 document.addEventListener('mousemove', (event) => {
     mouseX = (event.clientX - window.innerWidth / 2);
@@ -85,21 +82,18 @@ const clock = new THREE.Clock();
 
 function animateParticles() {
     requestAnimationFrame(animateParticles);
-    
-    const time = clock.getElapsedTime();
-    
-    // Smooth mouse follow
-    targetX = mouseX * 0.001;
-    targetY = mouseY * 0.001;
-    
+
+    // 1. Smooth, continuous rotation of the entire system
     particlesGroup.rotation.y += 0.002;
     particlesGroup.rotation.x += 0.001;
-    
-    // Apply parallax
-    particlesGroup.rotation.y += (targetX - particlesGroup.rotation.y) * 0.05;
-    particlesGroup.rotation.x += (targetY - particlesGroup.rotation.x) * 0.05;
-    
-    // Gentle bobbing for individual particles
+
+    // 2. Apply parallax by moving the CAMERA instead of fighting the rotation math
+    camera.position.x += (mouseX * 0.05 - camera.position.x) * 0.05;
+    // Invert mouseY so scrolling feels natural with the camera
+    camera.position.y += (-mouseY * 0.05 - camera.position.y) * 0.05;
+    camera.lookAt(scene.position);
+
+    // 3. Gentle bobbing for individual particles
     particlesGroup.children.forEach(mesh => {
         mesh.rotation.x += mesh.userData.speed;
         mesh.rotation.y += mesh.userData.speed;
@@ -241,7 +235,7 @@ scrollTopBtn.addEventListener('click', () => {
 
 // ===== SMOOTH SCROLL FOR NAV LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -251,3 +245,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ===== CUSTOM MAGNENTIC CURSOR =====
+const cursorDot = document.getElementById('cursor-dot');
+const cursorRing = document.getElementById('cursor-ring');
+let cursorX = window.innerWidth / 2;
+let cursorY = window.innerHeight / 2;
+let ringX = cursorX;
+let ringY = cursorY;
+
+if (cursorDot && cursorRing) {
+    document.addEventListener('mousemove', (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+
+        // Instant dot tracking
+        cursorDot.style.left = `${cursorX}px`;
+        cursorDot.style.top = `${cursorY}px`;
+    });
+
+    // Smooth ring tracking
+    function animateCursorRing() {
+        ringX += (cursorX - ringX) * 0.15;
+        ringY += (cursorY - ringY) * 0.15;
+        cursorRing.style.left = `${ringX}px`;
+        cursorRing.style.top = `${ringY}px`;
+        requestAnimationFrame(animateCursorRing);
+    }
+    animateCursorRing();
+
+    // Hover states for magnetic effect
+    const hoverElements = document.querySelectorAll('a, button, .hero-title');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+}
