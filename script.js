@@ -1,92 +1,116 @@
-// ===== PARTICLE CONSTELLATION BACKGROUND =====
-const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-let mouse = { x: null, y: null };
+// ===== THREE.JS 3D PARTICLE CONSTELLATION BACKGROUND =====
+const canvasElement = document.getElementById('particles-canvas');
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+// Scene Setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas: canvasElement, alpha: true, antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.opacity = Math.random() * 0.5 + 0.1;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-    draw() {
-        ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
+// Particle System
+const particlesGroup = new THREE.Group();
+scene.add(particlesGroup);
+
+// Geometry and Material
+const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+const sphereMaterial = new THREE.MeshPhongMaterial({
+    color: 0x8b5cf6, // Purple / Lavender
+    emissive: 0x3b0764,
+    shininess: 100,
+    transparent: true,
+    opacity: 0.8
+});
+
+// Create Particles
+const particleCount = 400;
+for (let i = 0; i < particleCount; i++) {
+    const mesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    
+    // Distribute randomly in a spherical volume
+    const r = 40 + Math.random() * 60;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos((Math.random() * 2) - 1);
+    
+    mesh.position.x = r * Math.sin(phi) * Math.cos(theta);
+    mesh.position.y = r * Math.sin(phi) * Math.sin(theta);
+    mesh.position.z = r * Math.cos(phi);
+    
+    // Random scale
+    const scale = 0.2 + Math.random() * 0.8;
+    mesh.scale.set(scale, scale, scale);
+    
+    // Store random rotation properties for animation
+    mesh.userData = {
+        speed: (Math.random() - 0.5) * 0.02,
+        rx: Math.random() * Math.PI,
+        ry: Math.random() * Math.PI,
+        rz: Math.random() * Math.PI
+    };
+    
+    particlesGroup.add(mesh);
 }
 
-function initParticles() {
-    const count = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
-    particles = [];
-    for (let i = 0; i < count; i++) particles.push(new Particle());
-}
-initParticles();
-window.addEventListener('resize', initParticles);
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+scene.add(ambientLight);
 
-function connectParticles() {
-    for (let a = 0; a < particles.length; a++) {
-        for (let b = a + 1; b < particles.length; b++) {
-            const dx = particles[a].x - particles[b].x;
-            const dy = particles[a].y - particles[b].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 120) {
-                ctx.strokeStyle = `rgba(0, 212, 255, ${0.08 * (1 - dist / 120)})`;
-                ctx.lineWidth = 0.5;
-                ctx.beginPath();
-                ctx.moveTo(particles[a].x, particles[a].y);
-                ctx.lineTo(particles[b].x, particles[b].y);
-                ctx.stroke();
-            }
-        }
-        // Mouse connection
-        if (mouse.x && mouse.y) {
-            const dx = particles[a].x - mouse.x;
-            const dy = particles[a].y - mouse.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 150) {
-                ctx.strokeStyle = `rgba(0, 212, 255, ${0.15 * (1 - dist / 150)})`;
-                ctx.lineWidth = 0.8;
-                ctx.beginPath();
-                ctx.moveTo(particles[a].x, particles[a].y);
-                ctx.lineTo(mouse.x, mouse.y);
-                ctx.stroke();
-            }
-        }
-    }
-}
+const pointLight = new THREE.PointLight(0x00d4ff, 2, 100);
+pointLight.position.set(0, 0, 50);
+scene.add(pointLight);
+
+// Camera Position
+camera.position.z = 80;
+
+// Mouse Interaction
+let mouseX = 0;
+let mouseY = 0;
+let targetX = 0;
+let targetY = 0;
+
+document.addEventListener('mousemove', (event) => {
+    mouseX = (event.clientX - window.innerWidth / 2);
+    mouseY = (event.clientY - window.innerHeight / 2);
+});
+
+// Resize Handler
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Animation Loop
+const clock = new THREE.Clock();
 
 function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => { p.update(); p.draw(); });
-    connectParticles();
     requestAnimationFrame(animateParticles);
+    
+    const time = clock.getElapsedTime();
+    
+    // Smooth mouse follow
+    targetX = mouseX * 0.001;
+    targetY = mouseY * 0.001;
+    
+    particlesGroup.rotation.y += 0.002;
+    particlesGroup.rotation.x += 0.001;
+    
+    // Apply parallax
+    particlesGroup.rotation.y += (targetX - particlesGroup.rotation.y) * 0.05;
+    particlesGroup.rotation.x += (targetY - particlesGroup.rotation.x) * 0.05;
+    
+    // Gentle bobbing for individual particles
+    particlesGroup.children.forEach(mesh => {
+        mesh.rotation.x += mesh.userData.speed;
+        mesh.rotation.y += mesh.userData.speed;
+    });
+
+    renderer.render(scene, camera);
 }
 animateParticles();
 
 // ===== TYPING EFFECT (with delete) =====
-const typingTexts = ["AI Engineer", "Web Developer", "Cloud Enthusiast", "ML Enthusiast", "Open Source Contributor"];
+const typingTexts = ["AI ENGINEER", "WEB DEVELOPER", "CLOUD ENTHUSIAST", "ML ENTHUSIAST", "OPEN SOURCE CONTRIBUTOR"];
 let textIndex = 0, charIndex = 0, isDeleting = false;
 const typingEl = document.getElementById('typing');
 
