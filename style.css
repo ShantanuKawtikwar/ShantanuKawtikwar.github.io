@@ -1058,6 +1058,93 @@ section {
     font-weight: 600;
 }
 
+/* ===== MESSAGE CENTER ===== */
+.inbox-card {
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    transition: var(--transition);
+}
+
+.inbox-card:hover {
+    border-color: var(--glass-border-hover);
+    box-shadow: var(--shadow-glow);
+}
+
+.inbox-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.inbox-row {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.inbox-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.inbox-input,
+.inbox-textarea {
+    width: 100%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+    background: rgba(15, 23, 42, 0.5);
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0.8rem 0.9rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.light-mode .inbox-input,
+.light-mode .inbox-textarea {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.inbox-input:focus,
+.inbox-textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.12);
+}
+
+.inbox-textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.inbox-submit {
+    justify-content: center;
+    width: fit-content;
+    min-width: 150px;
+}
+
+.inbox-status {
+    min-height: 1.3rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.inbox-status.success {
+    color: #22c55e;
+}
+
+.inbox-status.error {
+    color: #ef4444;
+}
+
+.inbox-note {
+    margin-top: 0.9rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
 /* ===== FOOTER ===== */
 footer {
     padding: 2rem 0;
@@ -1181,5 +1268,13 @@ footer {
 
     section {
         padding: 3rem 0;
+    }
+
+    .inbox-card {
+        padding: 1.2rem;
+    }
+
+    .inbox-submit {
+        width: 100%;
     }
 }
