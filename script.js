@@ -233,11 +233,80 @@ scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+// ===== MESSAGE CENTER SUBMIT =====
+const messageForm = document.getElementById('message-form');
+const messageStatus = document.getElementById('message-status');
+const messageSubmitBtn = document.getElementById('message-submit-btn');
+
+function setMessageStatus(text, kind) {
+    if (!messageStatus) return;
+    messageStatus.textContent = text;
+    messageStatus.classList.remove('success', 'error');
+    if (kind) messageStatus.classList.add(kind);
+}
+
+if (messageForm && messageSubmitBtn) {
+    messageForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const recipient = (messageForm.dataset.recipient || '').trim();
+        if (!recipient) {
+            setMessageStatus('Owner inbox is not configured yet.', 'error');
+            return;
+        }
+
+        const formData = new FormData(messageForm);
+        const senderName = (formData.get('name') || '').toString().trim();
+        const senderEmail = (formData.get('email') || '').toString().trim();
+        const senderSubject = (formData.get('subject') || '').toString().trim();
+        const senderMessage = (formData.get('message') || '').toString().trim();
+        const payload = {
+            name: senderName,
+            email: senderEmail,
+            subject: senderSubject,
+            message: `Sender Name: ${senderName}\nSender Email: ${senderEmail}\nSubject: ${senderSubject}\n\nMessage:\n${senderMessage}`,
+            _subject: `Portfolio Inbox: ${senderSubject} (from ${senderName})`,
+            _replyto: senderEmail,
+            _template: 'table',
+            _captcha: 'false'
+        };
+
+        messageSubmitBtn.disabled = true;
+        messageSubmitBtn.textContent = 'Sending...';
+        setMessageStatus('Sending your message...', '');
+
+        try {
+            const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json().catch(() => ({}));
+            if (response.ok && result.success !== false) {
+                setMessageStatus('Message sent successfully.', 'success');
+                messageForm.reset();
+            } else {
+                throw new Error(result.message || 'Message failed. Please try again.');
+            }
+        } catch (error) {
+            setMessageStatus(error.message || 'Could not send message right now.', 'error');
+        } finally {
+            messageSubmitBtn.disabled = false;
+            messageSubmitBtn.textContent = 'Send Message';
+        }
+    });
+}
+
 // ===== SMOOTH SCROLL FOR NAV LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             const offset = 80;
             const top = target.getBoundingClientRect().top + window.scrollY - offset;
