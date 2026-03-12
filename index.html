@@ -35,6 +35,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#articles">Articles</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#inbox">Inbox</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="https://drive.google.com/file/d/1z6VEQwzovYAz_VM7uJXcQ9sUrio67dBy/view?usp=drivesdk"
@@ -56,6 +57,7 @@
         <a href="#projects" onclick="closeMobile()">Projects</a>
         <a href="#articles" onclick="closeMobile()">Articles</a>
         <a href="#contact" onclick="closeMobile()">Contact</a>
+        <a href="#inbox" onclick="closeMobile()">Inbox</a>
     </div>
 
     <!-- HERO -->
@@ -578,11 +580,11 @@
                 <p class="section-desc">Feel free to reach out — I'd love to hear from you!</p>
             </div>
             <div class="contact-grid">
-                <a href="mailto:shantanukawtikwar1994@gamil.com" class="contact-card reveal reveal-delay-1">
+                <a href="mailto:shantanukawtikwar1994@gmail.com" class="contact-card reveal reveal-delay-1">
                     <div class="contact-icon">📧</div>
                     <div>
                         <div class="contact-label">Email</div>
-                        <div class="contact-value">shantanukawtikwar1994@gamil.com</div>
+                        <div class="contact-value">shantanukawtikwar1994@gmail.com</div>
                     </div>
                 </a>
                 <a href="https://www.linkedin.com/in/shantanu-kawtikwar-24a649320" target="_blank"
@@ -601,6 +603,44 @@
                         <div class="contact-value">ShantanuKawtikwar</div>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MESSAGE CENTER -->
+    <section id="inbox">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-kicker">Direct Message</div>
+                <h2 class="section-title">Message Center</h2>
+                <p class="section-desc">Send me a message directly. I will receive it in my inbox.</p>
+            </div>
+            <div class="inbox-card reveal">
+                <form id="message-form" class="inbox-form" data-recipient="shantanukawtikwar1994@gmail.com">
+                    <div class="inbox-row">
+                        <label class="inbox-label" for="sender-name">Your Name</label>
+                        <input class="inbox-input" type="text" id="sender-name" name="name" required>
+                    </div>
+                    <div class="inbox-row">
+                        <label class="inbox-label" for="sender-email">Your Email</label>
+                        <input class="inbox-input" type="email" id="sender-email" name="email" required>
+                    </div>
+                    <div class="inbox-row">
+                        <label class="inbox-label" for="sender-subject">Subject</label>
+                        <input class="inbox-input" type="text" id="sender-subject" name="subject" required>
+                    </div>
+                    <div class="inbox-row">
+                        <label class="inbox-label" for="sender-message">Message</label>
+                        <textarea class="inbox-textarea" id="sender-message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-glow btn-primary inbox-submit" id="message-submit-btn">
+                        Send Message
+                    </button>
+                    <p id="message-status" class="inbox-status" aria-live="polite"></p>
+                </form>
+                <p class="inbox-note">
+                    Note: FormSubmit may ask for one-time email activation on first message.
+                </p>
             </div>
         </div>
     </section>
