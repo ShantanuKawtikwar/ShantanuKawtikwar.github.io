@@ -783,6 +783,126 @@ section {
     line-height: 1.6;
 }
 
+.timeline-branch {
+    margin-top: 0.9rem;
+    padding-top: 0.85rem;
+    border-top: 1px dashed var(--glass-border);
+}
+
+.timeline-branch summary {
+    list-style: none;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.timeline-branch summary::-webkit-details-marker {
+    display: none;
+}
+
+.timeline-branch summary::before {
+    content: '+ ';
+    font-weight: 800;
+}
+
+.timeline-branch[open] summary::before {
+    content: '- ';
+}
+
+.timeline-branch summary:hover {
+    color: #7de9ff;
+}
+
+.timeline-branch-list {
+    margin-top: 0.85rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+}
+
+.timeline-branch-list li {
+    position: relative;
+    padding: 0.8rem 0.95rem 0.8rem 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(8px);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    transition: var(--transition);
+}
+
+.timeline-branch-list li:hover {
+    transform: translateX(6px);
+    border-color: var(--glass-border-hover);
+}
+
+.timeline-branch-list li::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background: var(--accent);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.45);
+}
+
+.timeline-branch-list li:nth-child(1) {
+    border-left: 3px solid #00d4ff;
+}
+
+.timeline-branch-list li:nth-child(1)::before {
+    background: #00d4ff;
+}
+
+.timeline-branch-list li:nth-child(2) {
+    border-left: 3px solid #22d3ee;
+}
+
+.timeline-branch-list li:nth-child(2)::before {
+    background: #22d3ee;
+}
+
+.timeline-branch-list li:nth-child(3) {
+    border-left: 3px solid #7c3aed;
+}
+
+.timeline-branch-list li:nth-child(3)::before {
+    background: #7c3aed;
+}
+
+.timeline-branch-list li:nth-child(4) {
+    border-left: 3px solid #c026d3;
+}
+
+.timeline-branch-list li:nth-child(4)::before {
+    background: #c026d3;
+}
+
+.timeline-branch-list li:nth-child(5) {
+    border-left: 3px solid #f59e0b;
+}
+
+.timeline-branch-list li:nth-child(5)::before {
+    background: #f59e0b;
+}
+
+.timeline-branch-list li:nth-child(6) {
+    border-left: 3px solid #ef4444;
+}
+
+.timeline-branch-list li:nth-child(6)::before {
+    background: #ef4444;
+}
+
 /* ===== CERTIFICATIONS ===== */
 .cert-grid {
     display: grid;
